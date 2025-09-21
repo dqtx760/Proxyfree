@@ -3,249 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CokeCloud可乐云导航</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>流量优惠套餐 - 优质网络服务</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* 基础布局 - 响应式调整 */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #e0e5ec;
-            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
         }
-
-        /* 双色系统 */
-        :root {
-            --bookmark-color: #FFD700;
-            --accent-color: #FF3333;
-            --register-green: #8DB600; /* 苹果绿 */
-        }
-
-        /* 主容器 - 响应式调整 */
-        .main-container {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px 15px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        /* 标题样式 - 动态字体大小 */
-        header {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            color: var(--accent-color);
-            margin: 0;
-            font-size: clamp(1.8em, 6vw, 2.5em);
-            letter-spacing: 0.5px;
-        }
-
-        /* 导航模块 - 响应式调整 */
-        nav {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        /* 分区标题 - 动态字体大小 */
-        .section-title {
-            font-size: clamp(1em, 4vw, 1.2em);
-            font-weight: bold;
-            margin: 10px 0;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            text-align: center;
-            width: 100%;
-        }
-
-        /* 按钮组容器 - 响应式调整 */
-        .button-group {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 10px;
-            gap: 8px;
-        }
-
-        /* 注册按钮 - 苹果绿色背景 */
-        .register-button {
-            background-color: var(--register-green) !important; /* 强制苹果绿 */
-            color: white !important;
-            border-radius: 15px;
-            padding: 16px;
-            margin: 8px 0;
-            width: 100%;
-            max-width: 320px;
-            min-height: 44px;
-            box-shadow: 5px 5px 12px #b8b9be, -5px -5px 12px #ffffff;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-        }
-
-        /* 标准按钮样式 */
-        .nav-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 14px;
-            margin: 6px 0;
-            background-color: #e0e5ec;
-            border-radius: 15px;
-            width: 100%;
-            max-width: 320px;
-            min-height: 44px;
-            box-shadow: 5px 5px 12px #b8b9be, -5px -5px 12px #ffffff;
-            cursor: pointer;
-            text-decoration: none;
-            color: #333;
+        .card {
             transition: all 0.3s ease;
         }
-
-        /* 图标样式 - 适配绿色背景 */
-        .custom-icon {
-            width: 22px;
-            height: 22px;
-            margin-right: 12px;
-            object-fit: contain;
-            filter: brightness(0) invert(1); /* 反转为白色 */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-
-        .button-icon {
-            margin-right: 12px;
-            font-size: clamp(1em, 4vw, 1.3em);
-            color: var(--accent-color);
-        }
-
-        /* 书签按钮 */
-        #bookmarkButton {
-            background-color: var(--bookmark-color);
-            color: #333;
-            border: none;
-            padding: 16px 28px;
-            border-radius: 15px;
-            box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-            font-weight: bold;
-            margin: 20px 0;
-            font-size: clamp(1em, 4vw, 1.1em);
-            min-height: 44px;
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             transition: all 0.3s ease;
         }
-
-        /* 底部信息 */
-        footer {
-            padding: 12px 0;
-            color: #666;
-            width: 100%;
-            text-align: center;
-            font-size: clamp(0.8em, 3vw, 0.9em);
-            margin-top: 15px;
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
         }
-
-        /* 悬浮效果 */
-        .nav-button:hover,
-        .register-button:hover,
-        #bookmarkButton:hover {
-            transform: translateY(-3px);
-            box-shadow: 8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+        .platform-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
-
-        #bookmarkButton:hover {
-            transform: translateY(-3px) scale(1.03);
-        }
-
-        /* 响应式调整 - 小屏幕 */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-            .main-container {
-                padding: 15px 10px;
-            }
-            .register-button,
-            .nav-button {
-                padding: 12px;
-                max-width: 100%;
-            }
-            h1 {
-                font-size: 1.8em;
-            }
+        .title-divider {
+            height: 4px;
+            background: linear-gradient(90deg, rgba(59,130,246,0.2) 0%, rgba(59,130,246,1) 50%, rgba(59,130,246,0.2) 100%);
+            margin: 1.5rem auto;
+            width: 120px;
+            border-radius: 2px;
         }
     </style>
 </head>
-<body>
-    <div class="main-container">
-        <header>
-            <h1>300G流量 9.9米/月</h1>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-12 max-w-4xl">
+        <!-- 头部标题 -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">超值流量套餐</h1>
+            <p class="text-xl text-gray-600 mb-4">高速稳定网络，随时随地畅游</p>
+            <div class="title-divider"></div>
         </header>
 
-        <nav>
-            <div class="button-group">
-                <div class="section-title">免费试用1小时</div>
-                <a href="https://coke.buyzur.com/#/register?code=L2FOV7Yb" class="nav-button register-button" target="_blank">
-                    <img src="https://file.gwzxwk.com/88888.png" alt="注册图标" class="custom-icon">
-                    <span>点此注册</span>
+        <!-- 套餐卡片 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
+            <div class="md:flex">
+                <div class="md:w-2/3 p-8">
+                    <div class="flex items-center mb-6">
+                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold mr-3">热门</span>
+                        <h2 class="text-2xl font-bold text-gray-800">300G流量套餐</h2>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <span class="text-5xl font-bold text-blue-600">9.9<span class="text-2xl text-gray-600">元/月</span></span>
+                    </div>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">每月300GB高速流量</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">全球范围覆盖</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span class="text-gray-700">7×24小时客户支持</span>
+                        </li>
+                    </ul>
+                    <div class="mb-6">
+                        <a href="https://ccv.gwzxwk.com/#/register?code=L2FOV7Yb" class="btn-primary text-white font-bold py-3 px-8 rounded-lg inline-block text-center">
+                            立即注册
+                        </a>
+                    </div>
+                    <p class="text-gray-500 flex items-center">
+                        <i class="fas fa-clock text-blue-500 mr-2"></i>
+                        <span>免费试用1小时，好用再买</span>
+                    </p>
+                </div>
+                <div class="md:w-1/3 bg-gradient-to-b from-blue-500 to-blue-600 p-8 text-white flex flex-col justify-center">
+                    <div class="text-center">
+                        <i class="fas fa-rocket text-5xl mb-4"></i>
+                        <h3 class="text-xl font-bold mb-2">为什么选择我们?</h3>
+                        <p class="opacity-90 mb-6">极速稳定的网络连接，超高性价比的套餐选择</p>
+                        <div class="flex justify-center space-x-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">99.9%</div>
+                                <div class="text-sm">在线率</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">500+</div>
+                                <div class="text-sm">节点</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold">100K+</div>
+                                <div class="text-sm">用户</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 客户端下载 -->
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">下载客户端</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="card bg-white rounded-xl p-6 shadow-md">
+                    <i class="fab fa-windows platform-icon text-blue-500"></i>
+                    <h3 class="text-xl font-bold mb-3">Windows</h3>
+                    <p class="text-gray-600 mb-4">适用于Windows 7/10/11</p>
+                    <a href="https://pan.xunlei.com/s/VOXEBTcFZWYhuK2DRAmKH9VTA1?pwd=3j7b#" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
+                        下载地址
+                    </a>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-md">
+                    <i class="fab fa-android platform-icon text-green-500"></i>
+                    <h3 class="text-xl font-bold mb-3">Android</h3>
+                    <p class="text-gray-600 mb-4">支持所有Android设备</p>
+                    <a href="https://pan.xunlei.com/s/VOXEBikrqv4RZV5P1gftXe6dA1?pwd=bwzx#" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
+                        下载地址
+                    </a>
+                </div>
+                <div class="card bg-white rounded-xl p-6 shadow-md">
+                    <i class="fab fa-apple platform-icon text-gray-700"></i>
+                    <h3 class="text-xl font-bold mb-3">iPhone</h3>
+                    <p class="text-gray-600 mb-4">提供内购小火箭，美区ID</p>
+                    <a href="https://www.742112.xyz/" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
+                        获取教程
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <footer class="text-center">
+            <div class="mb-4">
+                <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                    <i class="fas fa-bookmark mr-2"></i>
+                    <span>一键收藏本站</span>
                 </a>
             </div>
-
-            <div class="button-group">
-                <div class="section-title">客户端下载</div>
-                <a href="https://pan.xunlei.com/s/VOXEBTcFZWYhuK2DRAmKH9VTA1?pwd=3j7b#" class="nav-button">
-                    <i class="fab fa-windows button-icon"></i>
-                    <span>Windows</span>
-                </a>
-                <a href="https://pan.xunlei.com/s/VOXEBikrqv4RZV5P1gftXe6dA1?pwd=bwzx#" class="nav-button">
-                    <i class="fab fa-android button-icon"></i>
-                    <span>Android</span>
-                </a>
-                <a href="https://www.742112.xyz/" class="nav-button" target="_blank">
-                    <i class="fab fa-apple button-icon"></i>
-                    <span>iPhone</span>
-                </a>
-                <a href="https://pan.xunlei.com/s/VOXECFgHyTAolGRHOIC2LiIwA1?pwd=tqg9#" class="nav-button" target="_blank">
-                    <i class="fas fa-laptop button-icon"></i>
-                    <span>Mac电脑</span>
-                </a>
+            <div class="text-gray-500 text-sm">
+                <p>© 2025 优质网络服务. 保留所有权利.</p>
             </div>
-        </nav>
-
-        <button id="bookmarkButton">
-            <i class="fas fa-bookmark"></i> 一键收藏本站
-        </button>
+            <div class="mt-8 text-sm text-gray-500">
+            </div>
+        </footer>
     </div>
 
-    <footer>
-        © 2025 仅学习研究，禁止外传，后果自负！
-    </footer>
-
     <script>
-        document.getElementById('bookmarkButton').addEventListener('click', function() {
-            const isMac = navigator.platform.toUpperCase().includes('MAC');
-            alert(`请使用 ${isMac ? 'Command+D' : 'Ctrl+D'} 收藏本页`);
+        // 收藏功能
+        document.querySelector('a[href="#"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('已添加到浏览器收藏夹！');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
