@@ -13,26 +13,27 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
-        。card {
+        /* --- 此处修正了所有中文句号为英文句号 --- */
+        .card {
             transition: all 0.3s ease;
         }
-        。card:hover {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        。btn-primary {
+        .btn-primary {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             transition: all 0.3s ease;
         }
-        。btn-primary:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
         }
-        。platform-icon {
+        .platform-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-        。title-divider {
+        .title-divider {
             height: 4px;
             background: linear-gradient(90deg, rgba(59,130,246,0.2) 0%, rgba(59,130,246,1) 50%, rgba(59,130,246,0.2) 100%);
             margin: 1.5rem auto;
@@ -47,9 +48,8 @@
             color: transparent;
         }
         
-        /* --- 弹窗样式 (已修正) --- */
         .modal {
-            display: none; /* 默认隐藏 - 这是唯一需要的display属性 */
+            display: none;
             position: fixed;
             z-index: 1000;
             left: 0;
@@ -58,7 +58,6 @@
             height: 100%;
             overflow: auto;
             background-color: rgba(0,0,0,0.5);
-            /* align-items 和 justify-content 会在 display:flex 时自动生效 */
             align-items: center;
             justify-content: center;
         }
@@ -209,10 +208,11 @@
 
     <!-- 优雅弹窗的HTML -->
     <div id="contactModal" class="modal">
-        <div class="modal-content text-center">
+        <div class="modal-content">
             <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">联系客服</h3>
-            <p class="text-gray-600">针对新手，提供1对1语音视频指导，含盖手机，电脑，软路由等，包教会。</p>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4 text-center">联系客服</h3>
+            <!-- --- 此处为修改部分, 增加了 text-left 和 indent-8 --- -->
+            <p class="text-gray-600 text-left indent-8 leading-relaxed">针对新手，提供1对1语音视频指导，含盖手机，电脑，软路由等，包教会。</p>
             <div class="mt-4 p-3 bg-gray-100 rounded-lg flex items-center justify-between">
                 <span class="text-gray-700">联系微信：<strong id="wechatId" class="text-green-600">dqtx33</strong></span>
                 <button id="copyBtn" class="bg-blue-500 text-white text-sm font-bold py-1 px-3 rounded-md hover:bg-blue-600 transition-colors">复制</button>
@@ -237,7 +237,7 @@
         // 打开弹窗
         contactBtn.onclick = function(event) {
             event.preventDefault();
-            modal.style.display = "flex"; // 点击时才显示
+            modal.style.display = "flex";
         }
 
         // 关闭弹窗
