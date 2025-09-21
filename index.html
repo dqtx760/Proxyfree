@@ -13,31 +13,40 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
-        。card {
+        /* --- 修正了这里的CSS选择器 --- */
+        .card {
             transition: all 0.3s ease;
         }
-        。card:hover {
+        .card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
-        。btn-primary {
+        .btn-primary {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             transition: all 0.3s ease;
         }
-        。btn-primary:hover {
+        .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
         }
-        。platform-icon {
+        .platform-icon {
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-        。title-divider {
+        .title-divider {
             height: 4px;
             background: linear-gradient(90deg, rgba(59,130,246,0.2) 0%, rgba(59,130,246,1) 50%, rgba(59,130,246,0.2) 100%);
             margin: 1.5rem auto;
             width: 120px;
             border-radius: 2px;
+        }
+        /* --- 为价格新增的渐变色样式 --- */
+        .price-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
         }
     </style>
 </head>
@@ -59,7 +68,9 @@
                         <h2 class="text-2xl font-bold text-gray-800">300G流量套餐</h2>
                     </div>
                     <div class="flex items-center mb-6">
-                        <span class="text-5xl font-bold text-blue-600">9.9<span class="text-2xl text-gray-600">元/月</span></span>
+                        <!-- --- 此处应用了价格渐变样式 --- -->
+                        <span class="text-5xl font-bold price-gradient">9.9</span>
+                        <span class="text-2xl text-gray-600">元/月</span>
                     </div>
                     <ul class="space-y-3 mb-8">
                         <li class="flex items-center">
@@ -132,7 +143,7 @@
                 <div class="card bg-white rounded-xl p-6 shadow-md">
                     <i class="fab fa-apple platform-icon text-gray-700"></i>
                     <h3 class="text-xl font-bold mb-3">iPhone</h3>
-                    <p class="text-gray-600 mb-4">美区共享ID，已内购小火箭，附教程</p>
+                    <p class="text-gray-600 mb-4">美区共享ID，已内购小火箭</p>
                     <a href="https://m.tb.cn/h.SWP33or?tk=aFmo4v6HpS4" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
                         获取教程
                     </a>
