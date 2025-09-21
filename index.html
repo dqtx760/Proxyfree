@@ -13,7 +13,6 @@
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
         }
-        /* --- 修正了这里的CSS选择器 --- */
         .card {
             transition: all 0.3s ease;
         }
@@ -40,7 +39,6 @@
             width: 120px;
             border-radius: 2px;
         }
-        /* --- 为价格新增的渐变色样式 --- */
         .price-gradient {
             background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
             -webkit-background-clip: text;
@@ -48,18 +46,59 @@
             background-clip: text;
             color: transparent;
         }
+        
+        /* --- 弹窗样式 (已修正) --- */
+        .modal {
+            display: none; /* 默认隐藏 - 这是唯一需要的display属性 */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            /* align-items 和 justify-content 会在 display:flex 时自动生效 */
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 0.3s;
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 0.5rem;
+            right: 1rem;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 <body class="bg-gray-50">
-    <div class="container mx-auto px-4 py-12 max-w-4xl">
-        <!-- 头部标题 -->
+    <div class="container mx-auto px-4 py-12 max-w-5xl">
+        <!-- (内容和之前一样) -->
         <header class="text-center mb-12">
             <h1 class="text-4xl font-bold text-gray-800 mb-2">超值流量套餐</h1>
             <p class="text-xl text-gray-600 mb-4">高速稳定网络，随时随地畅游</p>
             <div class="title-divider"></div>
         </header>
-
-        <!-- 套餐卡片 -->
         <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-12">
             <div class="md:flex">
                 <div class="md:w-2/3 p-8">
@@ -68,7 +107,6 @@
                         <h2 class="text-2xl font-bold text-gray-800">300G流量套餐</h2>
                     </div>
                     <div class="flex items-center mb-6">
-                        <!-- --- 此处应用了价格渐变样式 --- -->
                         <span class="text-5xl font-bold price-gradient">9.9</span>
                         <span class="text-2xl text-gray-600">元/月</span>
                     </div>
@@ -119,15 +157,13 @@
                 </div>
             </div>
         </div>
-
-        <!-- 客户端下载 -->
         <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8">下载客户端</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">客户端与支持</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="card bg-white rounded-xl p-6 shadow-md">
                     <i class="fab fa-windows platform-icon text-blue-500"></i>
                     <h3 class="text-xl font-bold mb-3">Windows</h3>
-                    <p class="text-gray-600 mb-4">适用于Windows 7/10/11</p>
+                    <p class="text-gray-600 mb-4 h-12">适用于Windows 7/10/11</p>
                     <a href="https://pan.xunlei.com/s/VOXEBTcFZWYhuK2DRAmKH9VTA1?pwd=3j7b#" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
                         下载地址
                     </a>
@@ -135,7 +171,7 @@
                 <div class="card bg-white rounded-xl p-6 shadow-md">
                     <i class="fab fa-android platform-icon text-green-500"></i>
                     <h3 class="text-xl font-bold mb-3">Android</h3>
-                    <p class="text-gray-600 mb-4">支持所有Android设备</p>
+                    <p class="text-gray-600 mb-4 h-12">支持所有Android设备</p>
                     <a href="https://pan.xunlei.com/s/VOXEBikrqv4RZV5P1gftXe6dA1?pwd=bwzx#" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
                         下载地址
                     </a>
@@ -143,18 +179,24 @@
                 <div class="card bg-white rounded-xl p-6 shadow-md">
                     <i class="fab fa-apple platform-icon text-gray-700"></i>
                     <h3 class="text-xl font-bold mb-3">iPhone</h3>
-                    <p class="text-gray-600 mb-4">美区共享ID，已内购小火箭</p>
+                    <p class="text-gray-600 mb-4 h-12">美区共享ID，附教程</p>
                     <a href="https://m.tb.cn/h.SWP33or?tk=aFmo4v6HpS4" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
                         获取教程
                     </a>
                 </div>
+                <div class="card bg-white rounded-xl p-6 shadow-md">
+                    <i class="fas fa-headset platform-icon text-purple-500"></i>
+                    <h3 class="text-xl font-bold mb-3">客服</h3>
+                    <p class="text-gray-600 mb-4 h-12">1对1教学指导</p>
+                    <a href="#" id="contactBtn" class="btn-primary text-white font-bold py-2 px-6 rounded-lg inline-block">
+                        联系我们
+                    </a>
+                </div>
             </div>
         </div>
-
-        <!-- 页脚 -->
         <footer class="text-center">
             <div class="mb-4">
-                <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800">
+                <a href="#" id="bookmarkBtn" class="inline-flex items-center text-blue-600 hover:text-blue-800">
                     <i class="fas fa-bookmark mr-2"></i>
                     <span>一键收藏本站</span>
                 </a>
@@ -162,27 +204,67 @@
             <div class="text-gray-500 text-sm">
                 <p>© 2025 优质网络服务. 保留所有权利.</p>
             </div>
-            <div class="mt-8 text-sm text-gray-500">
-            </div>
         </footer>
+    </div>
+
+    <!-- 优雅弹窗的HTML -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content text-center">
+            <span class="close-button">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">联系客服</h3>
+            <p class="text-gray-600">针对新手，提供1对1语音视频指导，含盖手机，电脑，软路由等，包教会。</p>
+            <div class="mt-4 p-3 bg-gray-100 rounded-lg flex items-center justify-between">
+                <span class="text-gray-700">联系微信：<strong id="wechatId" class="text-green-600">dqtx33</strong></span>
+                <button id="copyBtn" class="bg-blue-500 text-white text-sm font-bold py-1 px-3 rounded-md hover:bg-blue-600 transition-colors">复制</button>
+            </div>
+        </div>
     </div>
 
     <script>
         // 收藏功能
-        document.querySelector('a[href="#"]').addEventListener('click', function(e) {
+        document.getElementById('bookmarkBtn').addEventListener('click', function(e) {
             e.preventDefault();
             alert('已添加到浏览器收藏夹！');
         });
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // 弹窗脚本
+        const modal = document.getElementById('contactModal');
+        const contactBtn = document.getElementById('contactBtn');
+        const closeBtn = document.querySelector('.close-button');
+        const copyBtn = document.getElementById('copyBtn');
+        const wechatIdElement = document.getElementById('wechatId');
+
+        // 打开弹窗
+        contactBtn.onclick = function(event) {
+            event.preventDefault();
+            modal.style.display = "flex"; // 点击时才显示
+        }
+
+        // 关闭弹窗
+        closeBtn.onclick = function() {
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // 复制功能
+        copyBtn.onclick = function() {
+            const wechatId = wechatIdElement.innerText;
+            navigator.clipboard.writeText(wechatId).then(() => {
+                copyBtn.innerText = '已复制!';
+                copyBtn.classList.add('bg-green-500', 'hover:bg-green-500');
+                setTimeout(() => {
+                    copyBtn.innerText = '复制';
+                    copyBtn.classList.remove('bg-green-500', 'hover:bg-green-500');
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败: ', err);
+                alert('复制失败，请手动复制。');
             });
-        });
+        }
     </script>
 </body>
 </html>
