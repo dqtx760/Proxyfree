@@ -6,11 +6,13 @@
 
 ## 🌟 客户端
 
-- Hiddify:[点此下载](https://github.com/hiddify/hiddify-app/releases/tag/v2.0.5)
+- Hiddify:[点此下载](https://github.com/hiddify/hiddify-app/releases))
 
-- v2rayN：[点此下载](https://github.com/2dust/v2rayN/releases/tag/7.5.6)
+- v2rayN：[点此下载](https://github.com/2dust/v2rayN/releases)
 
-- Clash Verge：[点此下载](https://github.com/clash-verge-rev/clash-verge-rev/releases/tag/v2.2.3)
+- Clash Verge：[点此下载](https://github.com/clash-verge-rev/clash-verge-rev/releases)
+
+- sparkle：[点此下载](https://github.com/xishang0128/sparkle/releases)
 
 ## 🧰机场推荐
 
