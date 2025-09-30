@@ -1,33 +1,58 @@
-<div style="display: flex; gap: 10px;">
-  <a href="https://blog.csdn.net/2402_82616859?type=blog"><img src="https://img.shields.io/badge/📖_大强同学-FF4D4D?style=flat-square&logo=c&logoColor=white" alt="CSDN"></a>
-  <a href="https://twitter.com/dqtx760"><img src="https://img.shields.io/badge/🐦_dqtx760-1DA1F2?style=flat-square&logo=x&logoColor=white" alt="Twitter"></a>
-  <a href="https://www.youtube.com/@dqtx760/videos"><img src="https://img.shields.io/badge/🎬_dqtx760-FF0000?style=flat-square&logo=youtube&logoColor=white" alt="YouTube"></a>
-</div>
+# Clash/V2Ray免费订阅链接，免费免费节点，科学上网，每日更新！
 
-## 🌟 客户端
+> 免费节点都爬取自网络，请勿用于非法用途 。
 
-- Hiddify:[点此下载](https://github.com/hiddify/hiddify-app/releases))
+## ✅机场推荐
 
-- v2rayN：[点此下载](https://github.com/2dust/v2rayN/releases)
+### 免费费节点
 
-- Clash Verge：[点此下载](https://github.com/clash-verge-rev/clash-verge-rev/releases)
+```
+https://anaer.github.io/Sub/clash.yaml
+https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
+```
 
-- sparkle：[点此下载](https://github.com/xishang0128/sparkle/releases)
+## 高速机场推荐
 
-## 🧰机场推荐
+- 每月尊享300GB极速流量
+- 覆盖全球500+优质节点
+- 7×24小时客户支持
 
-- [点此注册](https://cokecloud.me/#/register?code=MvZ2iKtd) 300G流量/月  仅需9.9元 
-
--  [远程代注册账号](https://xodnytdcaw.feishu.cn/wiki/ZOeHwecXHihm0fkgdzcck8TCnPb?fromScene=spaceOverview)
+[点此注册](https://cokecloud.me/#/register?code=MvZ2iKtd)  低至9.9元/🈷️，300G流量，延迟低，速度快，注册免费送美区ID
 
 ![小猫编程动图](https://mmbiz.qpic.cn/mmbiz_gif/gz2sdHyQbaZc0dIlEbMqjanFnBSmeLcww0YAecX8fuicqdUW4goZhMlKxhdaNzMDA9XgZD5CfffmqsEqkUibrySA/640?wx_fmt=gif&from=appmsg)
 
-## 🌟常用工具
+## ✅代理客户端
 
+| 软件                                                         | Windows | Mac  | Linux | iOS  | Android | 备注 |
+| ------------------------------------------------------------ | ------- | ---- | ----- | ---- | ------- | ---- |
+| [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev/releases) | ✅       | ✅    | ✅     |      |         |      |
+| [V2rayN](https://github.com/2dust/v2rayN/releases)           | ✅       |      |       |      |         |      |
+| [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
+| [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |         |      |
+| [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
+
+
+## ✅Telegram
+
+Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
+
+Telegram优质群组/机器人
+
+```
+https://github.com/tmeseoi/telegram.github.io
+https://github.com/itgoyo/TelegramGroup
+https://github.com/itgoyo/TelegramBot
+```
+
+
+## ✅在线工具
 
 1. [匿名临时邮箱](https://temp-mail.org/zh/)
-
 2. [随机密码生成](https://tool.cccyun.cc/rand_password)
-
 3. [美国地址生产器](https://usaddressgen.com/)
-
+4. [2FA验证](https://2fa.run/)
+5. [GitHub下载加速](https://yishijie.gitlab.io/ziyuan/)
+6. [Sms接码](https://sms-activate.guru/?ref=12307132)
+7. [IP类型/风控值](https://ping0.cc/)
+8. [IP信息查询](https://iplark.com/)
+9. [网速测试](https://www.speedtest.net/zh-Hans)
