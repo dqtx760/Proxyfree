@@ -32,6 +32,10 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 
 
+## ✅软路由
+OpenWrt 主题
+https://github.com/eamonxg/luci-theme-aurora
+
 ## ✅Telegram
 
 Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
