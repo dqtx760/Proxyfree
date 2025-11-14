@@ -35,6 +35,7 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 ## ✅软路由
 OpenWrt 主题
 https://github.com/eamonxg/luci-theme-aurora
+https://github.com/SAENE/luci-theme-design
 
 ## ✅Telegram
 
