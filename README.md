@@ -13,11 +13,12 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 
 ### 付费节点
 
-- 可乐云：[点此注册](https://cokecloud.me/#/register?code=MvZ2iKtd)  低至9.9元/🈷️，300G流量
-- 良心云：[点此注册](https://xn--9kqz23b19z.com/#/register?code=r4ZAOkF6)  低至2元/🈷️，100G流量
-- 其他待更新。。。
-
-
+| 平台 | 注册 | 说明 |
+|------|------|------|
+| ![可乐云](https://img.shields.io/badge/可乐云-blueviolet) | [点此注册](https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb) | 免费送1小时时长，低至9.9元/🈷️，300G流量 |
+| ![红杏云](https://img.shields.io/badge/红杏云-red) | [点击注册](https://hongxingyun.pro/web/#/login?code=mZVJOMs4) | 14.9/🈷️，200GB/月赠送EMBY影视库 |
+| ![LILISI](https://img.shields.io/badge/LILISI-darkgreen) | [点此注册](https://my.lilisi.cc/#/register?code=LqO3zqD3) | 免费册送2小时长，低至67.50/每季 9999GB/月 ，公网中转线路，最高传输达2Gb/s |
+| ![Bitz Net](https://img.shields.io/badge/BitzNet-lightgreen) | [点击注册](https://dir3.bnaffloop.com/#/register?code=UfWht5u0) | 免费送5G免费流量，低至69.99/季 80GB/月  IEPL专线 |
 
 ![小猫编程动图](https://mmbiz.qpic.cn/mmbiz_gif/gz2sdHyQbaZc0dIlEbMqjanFnBSmeLcww0YAecX8fuicqdUW4goZhMlKxhdaNzMDA9XgZD5CfffmqsEqkUibrySA/640?wx_fmt=gif&from=appmsg)
 
