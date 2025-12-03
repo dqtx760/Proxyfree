@@ -1,4 +1,4 @@
-# Clash/V2Ray免费订阅链接，免费免费节点，科学上网，每日更新！
+# Clash/V2Ray/小火箭/OpenWrt免费订阅链接，免费免费节点，科学上网，每日更新！
 
 > 免费节点都爬取自网络，请勿用于非法用途 。
 
@@ -34,7 +34,9 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 
 ## ✅软路由
 OpenWrt 主题
+
 https://github.com/eamonxg/luci-theme-aurora
+
 https://github.com/SAENE/luci-theme-design
 
 ## ✅Telegram
@@ -52,12 +54,13 @@ https://github.com/itgoyo/TelegramBot
 
 ## ✅在线工具
 
-1. [匿名临时邮箱](https://temp-mail.org/zh/)
-2. [随机密码生成](https://tool.cccyun.cc/rand_password)
-3. [美国地址生产器](https://usaddressgen.com/)
-4. [2FA验证](https://2fa.run/)
-5. [GitHub下载加速](https://yishijie.gitlab.io/ziyuan/)
-6. [Sms接码](https://sms-activate.guru/?ref=12307132)
-7. [IP类型/风控值](https://ping0.cc/)
-8. [IP信息查询](https://iplark.com/)
-9. [网速测试](https://www.speedtest.net/zh-Hans)
+- [IP信息查询](https://iplark.com/)
+- [IP类型/风控值](https://ping0.cc/)
+- [网速测试](https://www.speedtest.net/zh-Hans)
+- [匿名临时邮箱](https://temp-mail.org/zh/)
+- [随机密码生成](https://key.dqtx.cc/)
+- [美国地址生产器](https://usaddressgen.com/)
+- [2FA验证](https://2fa.run/)
+- [GitHub下载加速](https://yishijie.gitlab.io/ziyuan/)
+- [Sms接码](https://sms-activate.guru/?ref=12307132)
+
