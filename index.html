@@ -60,16 +60,6 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .price-gradient {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .dark .price-gradient {
-             background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
         .dark .fa-sun { display: inline-block; }
         .dark .fa-moon { display: none; }
         html:not(.dark) .fa-sun { display: none; }
@@ -124,6 +114,10 @@
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
+        
+        td, th {
+            vertical-align: middle;
+        }
     </style>
     
     <script>
@@ -148,8 +142,13 @@
             </a>
             <div class="flex items-center gap-4">
                 <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                    <a href="#details" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">套餐详情</a>
-                    <a href="#clients" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">客户端</a>
+                    <!-- 新增链接：IP查询 和 专线机场 -->
+                    <a href="https://iplark.com/check" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">IP质量检测</a>
+                    <a href="https://ip111.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">IP查询</a>
+                    
+                    <!-- 原有链接 -->
+                    <a href="#details" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">机场推荐</a>
+                    <a href="#clients" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">代理工具</a>
                     <a href="#tools" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">在线工具</a>
                 </nav>
                 <button id="theme-toggle" aria-label="Toggle theme" class="w-10 h-10 flex justify-center items-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
@@ -163,43 +162,66 @@
     <!-- ====== Main Content ====== -->
     <main class="max-w-5xl mx-auto px-6 py-8">
 
-        <!-- ====== Package Details Section ====== -->
+        <!-- ====== Package Details Section (Table Header Removed) ====== -->
         <section id="details" class="mb-6">
-            <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transform hover:-translate-y-1 transition-all duration-300">
-                <div class="md:flex">
-                    <div class="md:w-3/5 p-6">
-                        <div class="flex items-center mb-4">
-                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold mr-3">热门</span>
-                            <h2 class="text-xl font-bold text-gray-900 dark:text-white">300G流量套餐</h2>
-                        </div>
-                        <div class="flex items-baseline mb-4">
-                            <span class="text-4xl font-bold price-gradient">9.9</span>
-                            <span class="text-xl text-gray-600 dark:text-gray-400 ml-1">元/月</span>
-                        </div>
-                        <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="fas fa-check-circle text-green-500 mr-2"></i>每月尊享300GB极速流量</li>
-                            <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="fas fa-check-circle text-green-500 mr-2"></i>覆盖全球500+优质节点</li>
-                            <li class="flex items-center text-gray-700 dark:text-gray-300 text-sm"><i class="fas fa-check-circle text-green-500 mr-2"></i>7×24小时客户支持</li>
-                        </ul>
-                        <div class="mb-4">
-                            <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" rel="noopener noreferrer" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block text-center transition-all transform hover:scale-105 text-sm">
-                                立即注册
-                            </a>
-                        </div>
-                        <p class="text-gray-500 dark:text-gray-400 flex items-center text-xs"><i class="fas fa-clock text-indigo-500 mr-2"></i>免费试用1小时，好用再买</p>
-                    </div>
-                    <div class="md:w-2/5 bg-[#b7f605] p-6 text-gray-900 flex flex-col justify-center">
-                        <div class="text-center">
-                            <i class="fas fa-rocket text-4xl mb-3"></i>
-                            <h3 class="text-lg font-bold mb-2">为什么选择我们?</h3>
-                            <p class="opacity-90 mb-4 text-sm">极速稳定的网络连接，超高性价比的套餐选择</p>
-                            <div class="flex justify-center space-x-4">
-                                <div class="text-center"><div class="text-xl font-bold">99.9%</div><div class="text-xs">在线率</div></div>
-                                <div class="text-center"><div class="text-xl font-bold">500+</div><div class="text-xs">节点</div></div>
-                                <div class="text-center"><div class="text-xl font-bold">100K+</div><div class="text-xs">用户</div></div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transform transition-all duration-300">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <!-- 修改：已删除 <thead> 表头区域 -->
+                        <tbody>
+                            <!-- 可乐云 -->
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                <td class="px-6 py-4">
+                                    <img src="https://img.shields.io/badge/可乐云-blueviolet" alt="可乐云" class="h-6 inline-block">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点此注册</a>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
+                                    免费送1小时时长，低至9.9元/🈷️，300G流量
+                                </td>
+                            </tr>
+                            
+                            <!-- 红杏云 -->
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                <td class="px-6 py-4">
+                                    <img src="https://img.shields.io/badge/红杏云-red" alt="红杏云" class="h-6 inline-block">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://hongxingyun.pro/web/#/login?code=mZVJOMs4" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点击注册</a>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
+                                    14.9/🈷️，200GB/月,赠送EMBY影视库
+                                </td>
+                            </tr>
+                            
+                            <!-- LILISI -->
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                <td class="px-6 py-4">
+                                    <img src="https://img.shields.io/badge/LILISI-darkgreen" alt="LILISI" class="h-6 inline-block">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点此注册</a>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
+                                    免费送2小时时长，低至67.50/每季 9999GB/月 ，公网中转线路，最高传输达2Gb/s
+                                </td>
+                            </tr>
+                            
+                            <!-- Bitz Net -->
+                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
+                                <td class="px-6 py-4">
+                                    <img src="https://img.shields.io/badge/BitzNet-lightgreen" alt="BitzNet" class="h-6 inline-block">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点击注册</a>
+                                </td>
+                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
+                                    免费送5G免费流量，低至69.99/季 80GB/月 IEPL专线
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </section>
