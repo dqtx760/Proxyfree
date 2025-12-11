@@ -42,15 +42,19 @@ https://github.com/SAENE/luci-theme-design
 
 ## ✅Telegram
 
-Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
+- telegram使用passkey登录教程：隐私与安全
 
-Telegram优质群组/机器人
+- Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
 
-```
+- Telegram优质群组/机器人
+
+https://telegram-mop.869hr.uk/
+
 https://github.com/tmeseoi/telegram.github.io
+
 https://github.com/itgoyo/TelegramGroup
+
 https://github.com/itgoyo/TelegramBot
-```
 
 
 ## ✅在线工具
