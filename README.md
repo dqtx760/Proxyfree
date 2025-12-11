@@ -44,6 +44,17 @@ https://github.com/SAENE/luci-theme-design
 
 - telegram使用passkey登录教程：隐私与安全
 
+- 脑浏览器打开Telegram链接不能自动跳转到客户端
+  
+  替换编辑文件：[点此下载](https://lz.qaiu.top/parser?url=https://wwbxq.lanzouq.com/iZYKk3ddumhe)
+  
+  用记事本打开，把里面的路径改成自己的，⚠️注意默认的路径是单斜杠改成双斜杠再替换
+```
+D:\software\Telegram\Telegram.exe      #默认单斜杠   ❌
+D:\\software\\Telegram\\Telegram.exe   #改双斜线     ✅
+```
+
+
 - Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
 
 - Telegram优质群组/机器人
