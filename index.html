@@ -3,382 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>流量优惠套餐 - 科学上网</title>
+    <title>数字边境 · 网络服务指南</title>
+    <meta name="description" content="全球优质网络服务，高速流量套餐与客户端下载。">
     
-    <!-- SEO & Meta -->
-    <meta name="description" content="超值流量套餐，提供高速稳定的全球网络服务，支持Windows, Android, iPhone客户端。">
-    <meta name="keywords" content="流量套餐, 优质网络, 高速稳定, 客户端">
-    <meta name="author" content="科学上网">
-
-    <!-- TailwindCSS JIT CDN -->
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700&family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
                     colors: {
-                        primary: {
-                            50: '#f0f9ff',
-                            100: '#e0f2fe',
-                            200: '#bae6fd',
-                            300: '#7dd3fc',
-                            400: '#38bdf8',
-                            500: '#0ea5e9',
-                            600: '#0284c7',
-                            700: '#0369a1',
-                            800: '#075985',
-                            900: '#0c4a6e',
-                        }
+                        primary: { 500: '#8b5cf6', 600: '#7c3aed' },
+                        secondary: { 500: '#0ea5e9' },
+                        dark: { bg: '#0f172a', card: '#1e293b', border: '#334155' },
                     }
                 }
             }
         }
     </script>
 
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
-
     <style>
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #0ea5e9, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .dark .gradient-text {
-            background: linear-gradient(135deg, #38bdf8, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .dark .fa-sun { display: inline-block; }
-        .dark .fa-moon { display: none; }
-        html:not(.dark) .fa-sun { display: none; }
-        html:not(.dark) .fa-moon { display: inline-block; }
-        * {
-            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-            align-items: center;
-            justify-content: center;
-        }
-        .modal-content {
-            position: relative;
-            background-color: #fefefe;
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            width: 90%;
-            max-width: 400px;
-            animation: fadeIn 0.3s;
-        }
-        .dark .modal-content {
-            background-color: #1f2937; /* dark:bg-gray-800 */
-        }
-        .close-button {
-            color: #aaa;
-            position: absolute;
-            top: 0.5rem;
-            right: 1rem;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .close-button:hover,
-        .close-button:focus {
-            color: black;
-        }
-        .dark .close-button:hover,
-        .dark .close-button:focus {
-            color: white;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
         
-        td, th {
-            vertical-align: middle;
+        .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,93%,1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(225,39%,93%,1) 0, transparent 50%);
+        }
+        .dark .bg-mesh {
+            background-image: radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(225,39%,10%,1) 0, transparent 50%);
+        }
+        .modal { transition: opacity 0.3s, visibility 0.3s; opacity: 0; visibility: hidden; }
+        .modal.active { opacity: 1; visibility: visible; }
+        .modal-content { transform: scale(0.95); transition: transform 0.3s; }
+        .modal.active .modal-content { transform: scale(1); }
+        
+        .tool-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: #374151;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+            text-align: center;
+            height: 100%;
+        }
+        .dark .tool-btn {
+            background-color: #1e293b;
+            color: #e5e7eb;
+            border-color: #334155;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+        .tool-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: #8b5cf6;
+            color: #7c3aed;
+        }
+        .dark .tool-btn:hover {
+            border-color: #8b5cf6;
+            color: #a78bfa;
         }
     </style>
-    
-    <script>
-        (function() {
-            const theme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (theme === 'dark' || (!theme && prefersDark)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-    </script>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-slate-800 text-gray-800 dark:text-gray-200">
+<body class="bg-gray-50 dark:bg-dark-bg text-gray-800 dark:text-gray-200 transition-colors duration-300 font-sans flex flex-col min-h-screen">
 
-    <!-- ====== Header ====== -->
-    <header class="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-lg border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="fixed inset-0 bg-mesh -z-10 opacity-60 pointer-events-none"></div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-gray-200 dark:border-dark-border">
+        <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
+        <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3">
-                <i class="fas fa-rocket text-2xl text-indigo-500"></i>
-                <span class="text-xl font-bold text-gray-900 dark:text-white gradient-text">科学上网</span>
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white shadow-lg">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <span class="text-xl font-serif font-bold text-gray-900 dark:text-white">Digital<span class="text-primary-600 dark:text-primary-500">Frontier</span></span>
             </a>
-            <div class="flex items-center gap-4">
-                <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-                    <!-- 新增链接：IP查询 和 专线机场 -->
-                    <a href="https://iplark.com/check" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">IP质量检测</a>
-                    <a href="https://ip111.cn/" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">IP查询</a>
-                    
-                    <!-- 原有链接 -->
-                    <a href="#details" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">机场推荐</a>
-                    <a href="#clients" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">代理工具</a>
-                    <a href="#tools" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500 transition-colors">在线工具</a>
+            <div class="flex items-center gap-6">
+                <nav class="hidden md:flex gap-6 text-sm font-medium text-gray-600 dark:text-gray-400">
+                    <a href="#services" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">精选服务</a>
+                    <a href="#clients" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">客户端</a>
+                    <a href="#tools" class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">工具箱</a>
                 </nav>
-                <button id="theme-toggle" aria-label="Toggle theme" class="w-10 h-10 flex justify-center items-center rounded-lg text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
-                    <i class="fas fa-sun text-lg"></i>
-                    <i class="fas fa-moon text-lg"></i>
+                <button id="theme-toggle" class="w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex items-center justify-center">
+                    <i class="fas fa-sun dark:hidden text-lg"></i>
+                    <i class="fas fa-moon hidden dark:block text-lg"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- ====== Main Content ====== -->
-    <main class="max-w-5xl mx-auto px-6 py-8">
+    <!-- Main Content -->
+    <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
+    <main class="max-w-6xl mx-auto px-6 pb-20 flex-grow w-full">
+        <!-- Hero -->
+        <section class="py-16 md:py-24 text-center">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold mb-6 text-gray-900 dark:text-white">
+                打破信息的 
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-violet-600 to-sky-500 dark:from-violet-400 dark:to-cyan-300">
+                    物理边界
+                </span>
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+                精选全球优质网络服务，提供高速、稳定、安全的连接方案。
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#services" class="px-8 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:shadow-lg transition-all">开始探索</a>
+                <button onclick="document.getElementById('contactBtn').click()" class="px-8 py-3 rounded-xl glass-panel text-gray-700 dark:text-gray-200 font-semibold hover:bg-gray-100 dark:hover:bg-white/5 transition-all">新手客服</button>
+            </div>
+        </section>
 
-        <!-- ====== Package Details Section (Table Header Removed) ====== -->
-        <section id="details" class="mb-6">
-            <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700 transform transition-all duration-300">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <!-- 修改：已删除 <thead> 表头区域 -->
-                        <tbody>
-                            <!-- 可乐云 -->
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-                                <td class="px-6 py-4">
-                                    <img src="https://img.shields.io/badge/可乐云-blueviolet" alt="可乐云" class="h-6 inline-block">
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点此注册</a>
-                                </td>
-                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
-                                    免费送1小时时长，低至9.9元/🈷️，300G流量
-                                </td>
-                            </tr>
-                            
-                            <!-- 红杏云 -->
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-                                <td class="px-6 py-4">
-                                    <img src="https://img.shields.io/badge/红杏云-red" alt="红杏云" class="h-6 inline-block">
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="https://hongxingyun.pro/web/#/login?code=mZVJOMs4" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点击注册</a>
-                                </td>
-                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
-                                    14.9/🈷️，200GB/月,赠送EMBY影视库
-                                </td>
-                            </tr>
-                            
-                            <!-- LILISI -->
-                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-                                <td class="px-6 py-4">
-                                    <img src="https://img.shields.io/badge/LILISI-darkgreen" alt="LILISI" class="h-6 inline-block">
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点此注册</a>
-                                </td>
-                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
-                                    免费送2小时时长，低至67.50/每季 9999GB/月 ，公网中转线路，最高传输达2Gb/s
-                                </td>
-                            </tr>
-                            
-                            <!-- Bitz Net -->
-                            <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">
-                                <td class="px-6 py-4">
-                                    <img src="https://img.shields.io/badge/BitzNet-lightgreen" alt="BitzNet" class="h-6 inline-block">
-                                </td>
-                                <td class="px-6 py-4">
-                                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 font-bold underline decoration-2 underline-offset-4">点击注册</a>
-                                </td>
-                                <td class="px-6 py-4 text-gray-700 dark:text-gray-300 min-w-[200px]">
-                                    免费送5G免费流量，低至69.99/季 80GB/月 IEPL专线
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+        <!-- Services -->
+        <section id="services" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-serif font-bold mb-6 dark:text-white flex items-center gap-2">
+                <i class="fas fa-server text-primary-500"></i> 精选服务
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 可乐云 -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-violet-500/50 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-violet-500 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-lg font-bold dark:text-white">可乐云</h3>
+                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥9.9 <span class="text-sm font-sans text-gray-500">/月</span></p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>300GB 流量</li>
+                        <li><i class="fas fa-gift text-pink-500 mr-2"></i>免费送1小时</li>
+                    </ul>
+                    <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:opacity-90">立即注册</a>
+                </div>
+
+                <!-- 红杏云 -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-red-500/50 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-red-500 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-film"></i></div>
+                    <h3 class="text-lg font-bold dark:text-white">红杏云</h3>
+                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥14.9 <span class="text-sm font-sans text-gray-500">/月</span></p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>200GB 流量</li>
+                        <li><i class="fas fa-star text-yellow-500 mr-2"></i>赠送EMBY影视库</li>
+                    </ul>
+                    <a href="https://hongxingyun.pro/web/#/login?code=mZVJOMs4" target="_blank" class="block w-full py-2 text-center rounded-lg border border-gray-300 dark:border-gray-600 hover:border-red-500 hover:text-red-500 transition-colors">立即注册</a>
+                </div>
+
+                <!-- LILISI -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-emerald-500/50 hover:-translate-y-2 flex flex-col h-full border-2 border-primary-500/10 relative">
+                    <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">推荐</div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="text-lg font-bold dark:text-white">LILISI</h3>
+                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥67.5 <span class="text-sm font-sans text-gray-500">/季</span></p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-infinity text-blue-500 mr-2"></i>9999GB/月</li>
+                        <li><i class="fas fa-tachometer-alt text-red-500 mr-2"></i>2Gb/s 极速公网</li>
+                    </ul>
+                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold hover:shadow-lg">立即注册</a>
+                </div>
+
+                <!-- Bitz Net -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-sky-500/50 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-lg font-bold dark:text-white">Bitz Net</h3>
+                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥69.9 <span class="text-sm font-sans text-gray-500">/季</span></p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-rocket text-purple-500 mr-2"></i>IEPL 游戏专线</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>80GB/月</li>
+                    </ul>
+                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" class="block w-full py-2 text-center rounded-lg border border-gray-300 dark:border-gray-600 hover:border-sky-500 hover:text-sky-500 transition-colors">立即注册</a>
                 </div>
             </div>
         </section>
 
-        <!-- ====== Clients & Support Section ====== -->
-        <section id="clients" class="py-6 mb-6">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Windows Card -->
-                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-md p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-indigo-500 transform hover:-translate-y-1 transition-all">
-                    <i class="fab fa-windows text-4xl text-blue-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Windows</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 h-12">适用于Windows 7/10/11</p>
-                    <a href="https://pan.xunlei.com/x/VOc6LuLQrRV7WNRl-h7_ZILCA1?pwd=tvz8#" target="_blank" rel="noopener noreferrer" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block">下载地址</a>
-                </div>
-                <!-- Android Card -->
-                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-md p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-indigo-500 transform hover:-translate-y-1 transition-all">
-                    <i class="fab fa-android text-4xl text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Android</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 h-12">支持所有Android设备</p>
-                    <a href="https://pan.xunlei.com/x/VOc6KvTWI0Tw-mexw67VmyyLA1?pwd=vys8#" target="_blank" rel="noopener noreferrer" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block">下载地址</a>
-                </div>
-                <!-- iPhone Card -->
-                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-md p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-indigo-500 transform hover:-translate-y-1 transition-all">
-                    <i class="fab fa-apple text-4xl text-gray-600 dark:text-gray-300 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">iPhone</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 h-12">美区共享ID，已内购火箭</p>
-                    <a href="https://xhslink.com/m/17OulEMYbcY" target="_blank" rel="noopener noreferrer" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block">点此获取</a>
-                </div>
-                <!-- Support Card -->
-                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-md p-6 text-center border border-gray-200 dark:border-gray-700 hover:shadow-xl hover:border-indigo-500 transform hover:-translate-y-1 transition-all">
-                    <i class="fas fa-headset text-4xl text-purple-500 mb-4"></i>
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">客服</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4 h-12">1对1语音视频教学指导</p>
-                    <a href="#" id="contactBtn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg inline-block">联系我们</a>
-                </div>
+        <!-- Clients -->
+        <section id="clients" class="mb-16 scroll-mt-24">
+            <h2 class="text-2xl font-serif font-bold mb-6 dark:text-white flex items-center gap-2">
+                <i class="fas fa-download text-secondary-500"></i> 客户端下载
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <a href="https://pan.xunlei.com/x/VOc6LuLQrRV7WNRl-h7_ZILCA1?pwd=tvz8#" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center gap-3 hover:bg-blue-50 dark:hover:bg-blue-900/20">
+                    <i class="fab fa-windows text-4xl text-blue-600"></i>
+                    <span class="font-bold dark:text-white">Windows</span>
+                </a>
+                <a href="https://pan.xunlei.com/x/VOc6KvTWI0Tw-mexw67VmyyLA1?pwd=vys8#" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center gap-3 hover:bg-green-50 dark:hover:bg-green-900/20">
+                    <i class="fab fa-android text-4xl text-green-500"></i>
+                    <span class="font-bold dark:text-white">Android</span>
+                </a>
+                <a href="https://xhslink.com/m/17OulEMYbcY" target="_blank" class="glass-panel p-6 rounded-xl flex flex-col items-center gap-3 hover:bg-gray-100 dark:hover:bg-gray-700/20">
+                    <i class="fab fa-apple text-4xl text-gray-800 dark:text-gray-200"></i>
+                    <span class="font-bold dark:text-white">iPhone</span>
+                </a>
+                <button id="contactBtn" class="glass-panel p-6 rounded-xl flex flex-col items-center gap-3 hover:bg-purple-50 dark:hover:bg-purple-900/20">
+                    <i class="fas fa-headset text-4xl text-purple-500"></i>
+                    <span class="font-bold dark:text-white">客服支持</span>
+                </button>
             </div>
         </section>
 
-        <!-- ====== Online Tools Section ====== -->
-        <section id="tools" class="py-6">
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <a href="https://ip111.cn/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">IP查询</span></a>
-                <a href="https://ping0.cc/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">IP纯净度</span></a>
-                <a href="https://www.speedtest.net/zh-Hans" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">网速测试</span></a>
-                <a href="https://sms-activate.guru/?ref=12307132" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Sms接码</span></a>
-                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Telegram汉化包</span></a>
-                <a href="https://tempmail.cn/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">临时邮箱生成</span></a>
-                <a href="https://key.dqtx.cc/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">在线密码生成</span></a>
-                <a href="https://yishijie.gitlab.io/ziyuan/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">github加速</span></a>
-                <a href="https://gmailaliasgenerator.com/index.html?lang=zh-CN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail子邮箱</span></a>
-                <a href="chrome://settings/languages" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">chrome语言</span></a>
-                <a href="https://mail.google.com/mail/u/0/#inbox/FMfcgzQZVJvWgMndnrvjlSvqjvsDWZTh" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail登录</span></a>
-                <a href="https://myaccount.google.com/language?continue=https%3A%2F%2Fmyaccount.google.com%2Fpersonal-info%3Futm_source%3Dchrome-profile-chooser" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail更改语言</span></a>
-                <a href="https://myaccount.google.com/security?authuser=0&utm_source=chrome-profile-chooser" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail改密/辅助邮箱</span></a>
-                <a href="https://myaccount.google.com/email?continue=https%3A%2F%2Fmyaccount.google.com%2Fpersonal-info%3Futm_source%3Dchrome-profile-chooser" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail备用邮箱</span></a>
-                <a href="https://policies.google.com/terms?hl=zh_CN" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gmail归属地</span></a>
-                <a href="https://aistudio.google.com/prompts/new_chat" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Google AI Studio</span></a>
-                <a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gemini官网</span></a>
-                <a href="https://goo.gle/freepro" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gemini 学生优惠</span></a>
-                <a href="https://myaccount.google.com/payments-and-subscriptions?utm_source=chrome-profile-chooser" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gemini Pro到期时间</span></a>
-                <a href="https://play.google.com/store/account/subscriptions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Gemini Pro订阅取消</span></a>
-                <a href="https://x.com/settings/languages" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Twitter语言设置</span></a>
-                <a href="https://x.com/settings/content_you_see" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Twitter搜索设置</span></a>
-                <a href="https://x.com/settings/password" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Twitter密码更改</span></a>
-                <a href="https://chromewebstore.google.com/detail/calm-twitter/cknklikacoaeledfaldmhabmldkldocj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Twitter广告隐藏</span></a>
-                <a href="https://chromewebstore.google.com/detail/kpiighgkabmpdlafpkmffbiimglmjadf" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center text-center bg-white/80 dark:bg-gray-800/80 px-4 py-3 rounded-lg shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-indigo-500 transition-all transform hover:-translate-y-1"><span class="text-sm font-semibold text-gray-700 dark:text-gray-200">Twitter右侧栏</span></a>
+        <!-- Tools -->
+        <section id="tools" class="scroll-mt-24">
+            <h2 class="text-2xl font-serif font-bold mb-6 dark:text-white flex items-center gap-2">
+                <i class="fas fa-toolbox text-gray-500"></i> 在线工具箱
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <a href="https://iplark.com/" target="_blank" class="tool-btn">IP信息查询</a>
+                <a href="https://ping0.cc/" target="_blank" class="tool-btn">IP纯净度</a>
+                <a href="https://www.speedtest.net/zh-Hans" target="_blank" class="tool-btn">网速测试</a>
+                <a href="https://sms-activate.guru/?ref=12307132" target="_blank" class="tool-btn">Sms接码</a>
+                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" class="tool-btn">Telegram汉化包</a>
+                
+                <a href="https://tempmail.cn/" target="_blank" class="tool-btn">临时邮箱生成</a>
+                <a href="https://key.dqtx.cc/" target="_blank" class="tool-btn">在线密码生成</a>
+                <a href="https://yishijie.gitlab.io/ziyuan/" target="_blank" class="tool-btn">github加速</a>
+                <a href="https://gmailaliasgenerator.com/index.html?lang=zh-CN" target="_blank" class="tool-btn">Gmail子邮箱</a>
+                <a href="chrome://settings/languages" target="_blank" class="tool-btn">chrome语言</a>
 
+                <a href="https://mail.google.com/" target="_blank" class="tool-btn">Gmail登录</a>
+                <a href="https://myaccount.google.com/language" target="_blank" class="tool-btn">Gmail更改语言</a>
+                <a href="https://myaccount.google.com/security" target="_blank" class="tool-btn">Gmail改密/辅助</a>
+                <a href="https://myaccount.google.com/email" target="_blank" class="tool-btn">Gmail备用邮箱</a>
+                <a href="https://aistudio.google.com/" target="_blank" class="tool-btn">Google AI Studio</a>
 
+                <a href="https://gemini.google.com/app" target="_blank" class="tool-btn">Gemini官网</a>
+                <a href="https://goo.gle/freepro" target="_blank" class="tool-btn">Gemini 学生优惠</a>
+                <a href="https://batch.1key.me/" target="_blank" class="tool-btn">自动验证❶</a>
+                <a href="https://www.sheerid.help/" target="_blank" class="tool-btn">自动验证❷</a>
+                <a href="https://myaccount.google.com/family/details" target="_blank" class="tool-btn"><i class="fas fa-fire text-red-500 mr-1"></i>家庭群组共享</a>
+
+                <a href="https://policies.google.com/terms" target="_blank" class="tool-btn">Gmail归属地</a>
+                <a href="https://policies.google.com/country-association-form" target="_blank" class="tool-btn">Gmail改归属地</a>
+                <a href="https://gemini.google.com/gems/create" target="_blank" class="tool-btn">gemini改名</a>
+                <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="tool-btn">Gemini Pro退订</a>
+                <a href="https://payments.google.com/" target="_blank" class="tool-btn">关闭付款地址</a>
+
+                <a href="https://x.com/settings/languages" target="_blank" class="tool-btn">Twitter语言设置</a>
+                <a href="https://x.com/settings/content_you_see" target="_blank" class="tool-btn">Twitter搜索设置</a>
+                <a href="https://x.com/settings/password" target="_blank" class="tool-btn">Twitter密码更改</a>
+                <a href="https://chromewebstore.google.com/detail/calm-twitter/cknklikacoaeledfaldmhabmldkldocj" target="_blank" class="tool-btn">Twitter广告隐藏</a>
+                <a href="https://chromewebstore.google.com/detail/kpiighgkabmpdlafpkmffbiimglmjadf" target="_blank" class="tool-btn">Twitter右侧栏</a>
             </div>
         </section>
-
     </main>
 
-    <!-- ====== Footer ====== -->
-    <footer class="bg-white/50 dark:bg-gray-900/50 border-t border-gray-200 dark:border-gray-800 mt-8">
-        <div class="max-w-5xl mx-auto px-6 py-5 text-center">
-            <div class="flex justify-center items-center space-x-4">
-                 <p class="text-gray-500 dark:text-gray-400 text-sm">© 2025</p>
-                 <a href="https://github.com/dqtx760/Proxyfree" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-indigo-600 dark:text-indigo-400 hover:underline">
-                    <i class="fab fa-github mr-2"></i><span>GitHub</span>
-                </a>
+    <!-- Footer: Terminal Style, Theme Aware -->
+    <footer class="bg-gray-50 dark:bg-[#0f1115] text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 pt-16 pb-12 font-mono transition-colors duration-300">
+        <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <!-- Brand -->
+            <div class="col-span-1">
+                <h3 class="text-gray-900 dark:text-gray-200 font-bold mb-4 tracking-wider text-xl flex items-center">
+                    <span class="text-green-500 mr-2">&gt;</span>DigitalFrontier
+                </h3>
+                <p class="text-sm leading-relaxed opacity-80 font-sans">
+                    Willing to make dreams come true
+                </p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="col-span-1 flex flex-col md:items-center">
+                <div class="w-full md:w-auto">
+                    <h3 class="text-green-500 font-bold mb-4 tracking-wider text-lg">
+                        <span class="mr-2">&gt;</span>NAVIGATION
+                    </h3>
+                    <ul class="space-y-3 text-sm font-sans">
+                        <li><a href="https://op.dqtx.cc/" target="_blank" class="hover:text-primary-500 transition-colors">OpenWrt</a></li>
+                        <li><a href="https://www.742112.xyz" target="_blank" class="hover:text-primary-500 transition-colors">technology</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Connect -->
+            <div class="col-span-1 flex flex-col md:items-end">
+                <h3 class="text-green-500 font-bold mb-4 tracking-wider text-lg">
+                    <span class="mr-2">&gt;</span>CONNECT
+                </h3>
+                <div class="flex gap-6 items-center text-xl">
+                    <a href="https://github.com/dqtx760" target="_blank" class="hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" id="wechat-public-trigger" class="hover:text-green-500 transition-colors">
+                        <i class="fab fa-weixin"></i>
+                    </a>
+                    <a href="#" id="donation-btn" class="hover:text-yellow-500 transition-colors">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- ====== Contact Modal ====== -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 text-center">联系客服</h3>
-            <p class="text-gray-600 dark:text-gray-300 text-left indent-8 leading-relaxed">针对新手，提供1对1语音视频指导，含盖手机，电脑，软路由等，包教会。</p>
-            <div class="mt-4 p-3 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-between">
-                <span class="text-gray-700 dark:text-gray-200">联系微信：<strong id="wechatId" class="text-green-600">dqtx33</strong></span>
-                <button id="copyBtn" class="bg-blue-500 text-white text-sm font-bold py-1 px-3 rounded-md hover:bg-blue-600 transition-colors">复制</button>
+    <!-- Modals -->
+    <div id="contactModal" class="modal fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+        <div class="modal-content bg-white dark:bg-dark-card w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
+            <div class="bg-primary-600 p-4 text-white text-center relative">
+                <span class="close-button absolute top-3 right-4 cursor-pointer text-xl opacity-70 hover:opacity-100">&times;</span>
+                <i class="fas fa-headset text-3xl mb-2"></i>
+                <h3 class="font-bold">VIP 客服支持</h3>
+            </div>
+            <div class="p-6 text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    提供 1对1 语音视频指导<br>手机、电脑、软路由设置，包教包会
+                </p>
+                <div class="bg-gray-100 dark:bg-gray-800 p-4 rounded-xl flex justify-between items-center border border-gray-200 dark:border-gray-700">
+                    <div class="text-left">
+                        <span class="text-xs text-gray-500 block">WeChat ID</span>
+                        <span class="font-mono font-bold text-lg dark:text-white" id="wechatId">dqtx33</span>
+                    </div>
+                    <button id="copyBtn" class="bg-primary-500 text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-primary-600 shadow-lg shadow-primary-500/30 transition-all">复制</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <div id="donation-modal" class="modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="modal-content bg-[#181a1f] border border-gray-700 rounded-xl w-full max-w-xs p-6 text-center">
+            <h3 class="text-white mb-4"><i class="fas fa-heart text-red-500 animate-pulse"></i> 感谢支持</h3>
+            <div class="flex border border-gray-700 rounded-lg mb-4 overflow-hidden">
+                <button id="wechat-tab" class="flex-1 p-2 text-xs font-bold bg-yellow-500/10 text-yellow-400 border-r border-gray-700">微信</button>
+                <button id="alipay-tab" class="flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5">支付宝</button>
+            </div>
+            <div class="bg-white/5 p-2 rounded-lg border border-gray-700">
+                <img id="qr-code-img" src="https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4874.webp" class="w-full h-auto rounded object-contain">
+            </div>
+            <button id="close-donation-btn" class="mt-4 w-full bg-white/10 text-gray-300 text-xs py-2 rounded hover:bg-white/20">关闭</button>
+        </div>
+    </div>
 
-    <!-- ====== JavaScript ====== -->
+    <div id="generic-qr-modal" class="modal fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="modal-content bg-[#181a1f] border border-gray-700 rounded-xl w-full max-w-xs p-6 text-center">
+            <h3 id="generic-modal-title" class="text-white mb-4 font-bold"></h3>
+            <div class="bg-white/5 p-2 rounded-lg border border-gray-700">
+                <img id="generic-modal-qr-img" src="" class="w-full h-auto rounded object-contain">
+            </div>
+            <p id="generic-modal-desc" class="text-xs text-gray-400 mt-4"></p>
+            <button id="close-generic-modal-btn" class="mt-4 w-full bg-white/10 text-gray-300 text-xs py-2 rounded hover:bg-white/20">关闭</button>
+        </div>
+    </div>
+
     <script>
-        (function() {
-            'use strict';
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme
+            const toggle = document.getElementById('theme-toggle');
+            const html = document.documentElement;
+            if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) html.classList.add('dark');
+            toggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+            });
 
-            // --- Theme Toggler Logic ---
-            const themeToggleBtn = document.getElementById('theme-toggle');
-            const htmlEl = document.documentElement;
-
-            const toggleTheme = () => {
-                htmlEl.classList.toggle('dark');
-                localStorage.setItem('theme', htmlEl.classList.contains('dark') ? 'dark' : 'light');
+            // Modal Utils
+            const open = (id) => { const m = document.getElementById(id); m.classList.remove('hidden'); requestAnimationFrame(()=>m.classList.add('active')); };
+            const close = (id) => document.getElementById(id).classList.remove('active');
+            
+            // Contact
+            document.getElementById('contactBtn').onclick = (e) => { e.preventDefault(); open('contactModal'); };
+            document.querySelector('#contactModal .close-button').onclick = () => close('contactModal');
+            document.getElementById('contactModal').onclick = (e) => { if(e.target===document.getElementById('contactModal')) close('contactModal'); };
+            document.getElementById('copyBtn').onclick = function() {
+                navigator.clipboard.writeText(document.getElementById('wechatId').innerText);
+                this.innerText = '已复制!'; 
+                this.classList.add('bg-green-500', 'hover:bg-green-600');
+                setTimeout(()=>{
+                    this.innerText='复制';
+                    this.classList.remove('bg-green-500', 'hover:bg-green-600');
+                }, 2000);
             };
-            if (themeToggleBtn) {
-                themeToggleBtn.addEventListener('click', toggleTheme);
-            }
 
-            // --- Modal Logic ---
-            const modal = document.getElementById('contactModal');
-            const contactBtn = document.getElementById('contactBtn');
-            const closeBtn = modal.querySelector('.close-button');
+            // Donation
+            const dModal = document.getElementById('donation-modal');
+            const qr = document.getElementById('qr-code-img');
+            const urls = { wechat: 'https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4874.webp', alipay: 'https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4877.webp' };
+            
+            document.getElementById('donation-btn')?.addEventListener('click', (e)=>{ e.preventDefault(); open('donation-modal'); });
+            document.getElementById('close-donation-btn').onclick = () => close('donation-modal');
+            dModal.onclick = (e) => { if(e.target===dModal) close('donation-modal'); };
+            
+            document.getElementById('wechat-tab').onclick = function() { qr.src=urls.wechat; this.className="flex-1 p-2 text-xs font-bold bg-yellow-500/10 text-yellow-400 border-r border-gray-700"; document.getElementById('alipay-tab').className="flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5"; };
+            document.getElementById('alipay-tab').onclick = function() { qr.src=urls.alipay; this.className="flex-1 p-2 text-xs font-bold bg-yellow-500/10 text-yellow-400"; document.getElementById('wechat-tab').className="flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5 border-r border-gray-700"; };
 
-            if (contactBtn) {
-                contactBtn.onclick = function(event) {
-                    event.preventDefault();
-                    modal.style.display = "flex";
-                }
-            }
-            if (closeBtn) {
-                closeBtn.onclick = function() {
-                    modal.style.display = "none";
-                }
-            }
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            }
-
-            // --- Modal Copy Button Logic ---
-            const copyBtn = document.getElementById('copyBtn');
-            if (copyBtn) {
-                copyBtn.onclick = function() {
-                    const wechatId = document.getElementById('wechatId').innerText;
-                    navigator.clipboard.writeText(wechatId).then(() => {
-                        copyBtn.innerText = '已复制!';
-                        copyBtn.classList.add('bg-green-500', 'hover:bg-green-500');
-                        setTimeout(() => {
-                            copyBtn.innerText = '复制';
-                            copyBtn.classList.remove('bg-green-500', 'hover:bg-green-500');
-                        }, 2000);
-                    }).catch(err => {
-                        console.error('复制失败: ', err);
-                        alert('复制失败，请手动复制。');
-                    });
-                }
-            }
-        })();
+            // Generic QR
+            const gModal = document.getElementById('generic-qr-modal');
+            document.getElementById('wechat-public-trigger')?.addEventListener('click', (e)=>{
+                e.preventDefault();
+                document.getElementById('generic-modal-title').innerText = '微信公众号';
+                document.getElementById('generic-modal-qr-img').src = 'https://gitee.com/da-qiang-classmate/typora/raw/master/image/687df59c-f85e-4a5f-ab35-cf86112e87fd.webp';
+                document.getElementById('generic-modal-desc').innerText = '扫码关注「大强同学」';
+                open('generic-qr-modal');
+            });
+            document.getElementById('close-generic-modal-btn').onclick = () => close('generic-qr-modal');
+            gModal.onclick = (e) => { if(e.target===gModal) close('generic-qr-modal'); };
+        });
     </script>
 </body>
 </html>
