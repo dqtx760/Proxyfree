@@ -98,7 +98,6 @@
 
     <!-- Header -->
     <header class="sticky top-0 z-40 glass-panel border-b border-gray-200 dark:border-dark-border">
-        <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
         <div class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center">
             <a href="#" class="flex items-center gap-3">
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white shadow-lg">
@@ -121,7 +120,6 @@
     </header>
 
     <!-- Main Content -->
-    <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
     <main class="max-w-6xl mx-auto px-6 pb-20 flex-grow w-full">
         <!-- Hero -->
         <section class="py-16 md:py-24 text-center">
@@ -146,16 +144,17 @@
                 <i class="fas fa-server text-primary-500"></i> 精选服务
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 可乐云 -->
-                <div class="glass-panel rounded-2xl p-6 hover:border-violet-500/50 hover:-translate-y-2 flex flex-col h-full">
+                <!-- 可乐云 (推荐) -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-violet-500/50 hover:-translate-y-2 flex flex-col h-full border-2 border-primary-500/10 relative">
+                    <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">推荐</div>
                     <div class="w-12 h-12 rounded-xl bg-violet-500 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-bolt"></i></div>
                     <h3 class="text-lg font-bold dark:text-white">可乐云</h3>
                     <p class="text-2xl font-serif font-bold dark:text-white my-2">¥9.9 <span class="text-sm font-sans text-gray-500">/月</span></p>
                     <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
                         <li><i class="fas fa-check text-green-500 mr-2"></i>300GB 流量</li>
-                        <li><i class="fas fa-gift text-pink-500 mr-2"></i>免费送1小时</li>
+                        <li><i class="fas fa-gift text-pink-500 mr-2"></i>新用户送1小时</li>
                     </ul>
-                    <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold hover:opacity-90">立即注册</a>
+                    <a href="https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold hover:shadow-lg">立即注册</a>
                 </div>
 
                 <!-- 红杏云 -->
@@ -164,36 +163,37 @@
                     <h3 class="text-lg font-bold dark:text-white">红杏云</h3>
                     <p class="text-2xl font-serif font-bold dark:text-white my-2">¥14.9 <span class="text-sm font-sans text-gray-500">/月</span></p>
                     <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>200GB 流量</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>200GB流量/月</li>
                         <li><i class="fas fa-star text-yellow-500 mr-2"></i>赠送EMBY影视库</li>
                     </ul>
                     <a href="https://hongxingyun.pro/web/#/login?code=mZVJOMs4" target="_blank" class="block w-full py-2 text-center rounded-lg border border-gray-300 dark:border-gray-600 hover:border-red-500 hover:text-red-500 transition-colors">立即注册</a>
                 </div>
 
-                <!-- LILISI -->
-                <div class="glass-panel rounded-2xl p-6 hover:border-emerald-500/50 hover:-translate-y-2 flex flex-col h-full border-2 border-primary-500/10 relative">
+                <!-- Bitz Net (推荐) -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-sky-500/50 hover:-translate-y-2 flex flex-col h-full border-2 border-primary-500/10 relative">
                     <div class="absolute top-0 right-0 bg-primary-600 text-white text-xs font-bold px-2 py-1 rounded-bl-lg rounded-tr-lg">推荐</div>
-                    <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-network-wired"></i></div>
-                    <h3 class="text-lg font-bold dark:text-white">LILISI</h3>
-                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥67.5 <span class="text-sm font-sans text-gray-500">/季</span></p>
-                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-infinity text-blue-500 mr-2"></i>9999GB/月</li>
-                        <li><i class="fas fa-tachometer-alt text-red-500 mr-2"></i>2Gb/s 极速公网</li>
-                    </ul>
-                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold hover:shadow-lg">立即注册</a>
-                </div>
-
-                <!-- Bitz Net -->
-                <div class="glass-panel rounded-2xl p-6 hover:border-sky-500/50 hover:-translate-y-2 flex flex-col h-full">
                     <div class="w-12 h-12 rounded-xl bg-sky-500 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-gamepad"></i></div>
                     <h3 class="text-lg font-bold dark:text-white">Bitz Net</h3>
                     <p class="text-2xl font-serif font-bold dark:text-white my-2">¥69.9 <span class="text-sm font-sans text-gray-500">/季</span></p>
                     <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-rocket text-purple-500 mr-2"></i>IEPL 游戏专线</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>80GB/月</li>
+                        <li><i class="fas fa-rocket text-purple-500 mr-2"></i>80G流量/月</li>
+                        <li><i class="fas fa-gift text-pink-500 mr-2"></i>新用户送5G流量</li>
                     </ul>
-                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" class="block w-full py-2 text-center rounded-lg border border-gray-300 dark:border-gray-600 hover:border-sky-500 hover:text-sky-500 transition-colors">立即注册</a>
+                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" class="block w-full py-2 text-center rounded-lg bg-gradient-to-r from-primary-600 to-secondary-600 text-white font-bold hover:shadow-lg">立即注册</a>
                 </div>
+
+                <!-- LILISI (已取消推荐) -->
+                <div class="glass-panel rounded-2xl p-6 hover:border-emerald-500/50 hover:-translate-y-2 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-xl mb-4"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="text-lg font-bold dark:text-white">LILISI</h3>
+                    <p class="text-2xl font-serif font-bold dark:text-white my-2">¥67.5 <span class="text-sm font-sans text-gray-500">/季</span></p>
+                    <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-infinity text-blue-500 mr-2"></i>9999GB流量/月</li>
+                        <li><i class="fas fa-gift text-pink-500 mr-2"></i>新用户送2小时</li>
+                    </ul>
+                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" class="block w-full py-2 text-center rounded-lg border border-gray-300 dark:border-gray-600 hover:border-sky-500 hover:text-sky-500 transition-colors">立即注册</a>
+                </div>
+
             </div>
         </section>
 
@@ -268,8 +268,7 @@
     </main>
 
     <!-- Footer: Terminal Style, Theme Aware -->
-    <footer class="bg-gray-50 dark:bg-[#0f1115] text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 pt-16 pb-12 font-mono transition-colors duration-300">
-        <!-- 修改了最大宽度：从 max-w-7xl 改为 max-w-6xl -->
+    <footer class="bg-gray-50 dark:bg-dark-bg text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800 pt-16 pb-12 font-mono transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
             <!-- Brand -->
             <div class="col-span-1">
