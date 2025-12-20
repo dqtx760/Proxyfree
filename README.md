@@ -16,7 +16,7 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | 平台 | 注册 | 说明 |
 |------|------|------|
 | ![可乐云](https://img.shields.io/badge/可乐云-blueviolet) | [点此注册](https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb) | 免费送1小时时长，低至9.9元/🈷️，300G流量 |
-| ![红杏云](https://img.shields.io/badge/红杏云-red) | [点击注册](https://hongxingyun.pro/web/#/login?code=mZVJOMs4) | 14.9/🈷️，200GB/月,赠送EMBY影视库 |
+| ![快雷GO](https://img.shields.io/badge/快雷GO-red) | [点击注册](https://www.cnct.中国/register?code=dl3bM8in) | ¥20/月 50GB流量/月、IEPL专线 |
 | ![LILISI](https://img.shields.io/badge/LILISI-darkgreen) | [点此注册](https://my.lilisi.cc/#/register?code=LqO3zqD3) | 免费册送2小时长，低至67.50/每季 9999GB/月 ，公网中转线路，最高传输达2Gb/s |
 | ![Bitz Net](https://img.shields.io/badge/BitzNet-lightgreen) | [点击注册](https://dir3.bnaffloop.com/#/register?code=UfWht5u0) | 免费送5G免费流量，低至69.99/季 80GB/月  IEPL专线 |
 
@@ -28,8 +28,9 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | ------------------------------------------------------------ | ------- | ---- | ----- | ---- | ------- | ---- |
 | [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev/releases) | ✅       | ✅    | ✅     |      |         |      |
 | [V2rayN](https://github.com/2dust/v2rayN/releases)           | ✅       |      |       |      |         |      |
+| [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |  ✅        |      |
+| [FlClash](https://github.com/chen08209/FlClash/releases)   | ✅       | ✅    | ✅     |      |    ✅      |      |
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
-| [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |         |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 
 
