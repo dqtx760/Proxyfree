@@ -30,6 +30,7 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | [V2rayN](https://github.com/2dust/v2rayN/releases)           | ✅       |      |       |      |         |      |
 | [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |  ✅        |      |
 | [FlClash](https://github.com/chen08209/FlClash/releases)   | ✅       | ✅    | ✅     |      |    ✅      |      |
+| [karing](https://karing.app/quickstart/)   | ✅       | ✅    | ✅     |  ✅     |    ✅      |      |
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 
