@@ -116,6 +116,24 @@
         .interactive-group { cursor: pointer; transition: filter 0.2s ease; }
         .interactive-group:hover { filter: brightness(0.95); }
         svg a { cursor: pointer; }
+        
+        /* 导航链接悬停效果 */
+        .nav-link-hover {
+            position: relative;
+        }
+        .nav-link-hover::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #DF95E3;
+            transition: width 0.3s;
+        }
+        .nav-link-hover:hover::after {
+            width: 100%;
+        }
     </style>
 </head>
 
@@ -126,54 +144,61 @@
          style="background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 24px 24px;">
     </div>
 
-    <!-- Header (增加了 border-b border-gray-200) -->
+    <!-- Header -->
     <header class="w-full border-b border-gray-200 bg-[#F8F6F5]/90 backdrop-blur-sm sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            
+            <!-- Logo (左侧) -->
             <a href="#" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <!-- Logo背景 -->
                 <div class="w-8 h-8 rounded-lg candy-gradient flex items-center justify-center text-white shadow-md">
                     <i class="fas fa-globe"></i>
                 </div>
                 <span class="text-xl font-serif font-bold text-ink">Digital<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F69AAC] to-[#DF95E3]">Frontier</span></span>
             </a>
+
+            <!-- Header 导航栏 (右侧) -->
+            <!-- 修改：添加 mr-3 使其向左偏移，链接添加渐变色类名 -->
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8 mr-3">
+                <a href="https://yishijie.gitlab.io/ziyuan/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">Github加速</a>
+                <a href="https://app.dqtx.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">数字工坊</a>
+                <a href="https://key.dqtx.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">密码生成</a>
+                <a href="https://www.speedtest.net/zh-Hans" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">网速测试</a>
+                <a href="https://ping0.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">IP纯净度</a>
+                <a href="https://iplark.com/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">IP查询</a>
+            </nav>
+
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-6xl mx-auto px-6 pt-8 pb-20 flex-grow w-full">
+    <main class="max-w-6xl mx-auto px-6 pt-8 pb-16 flex-grow w-full">
         
         <!-- 1. Tools Section -->
         <section id="tools" class="mb-12">
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <a href="https://iplark.com/" target="_blank" class="tool-btn">IP信息查询</a>
-                <a href="https://ping0.cc/" target="_blank" class="tool-btn">IP纯净度</a>
-                <a href="https://www.speedtest.net/zh-Hans" target="_blank" class="tool-btn">网速测试</a>
-                <a href="https://sms-activate.guru/?ref=12307132" target="_blank" class="tool-btn">Sms接码</a>
-                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" class="tool-btn">Telegram汉化包</a>
-                
-                <a href="https://tempmail.cn/" target="_blank" class="tool-btn">临时邮箱生成</a>
-                <a href="https://key.dqtx.cc/" target="_blank" class="tool-btn">在线密码生成</a>
-                <a href="https://yishijie.gitlab.io/ziyuan/" target="_blank" class="tool-btn">github加速</a>
-                <a href="https://gmailaliasgenerator.com/index.html?lang=zh-CN" target="_blank" class="tool-btn">Gmail子邮箱</a>
                 <a href="chrome://settings/languages" target="_blank" class="tool-btn">chrome语言</a>
+                <a href="https://gmailaliasgenerator.com/index.html?lang=zh-CN" target="_blank" class="tool-btn">Gmail子邮箱</a>
+                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" class="tool-btn">Telegram汉化包</a>
+                <a href="https://tempmail.cn/" target="_blank" class="tool-btn">临时邮箱生成</a>
+                <a href="https://sms-activate.guru/?ref=12307132" target="_blank" class="tool-btn">Sms接码</a>
 
+                <a href="https://aistudio.google.com/" target="_blank" class="tool-btn">AI Studio</a>
                 <a href="https://mail.google.com/" target="_blank" class="tool-btn">Gmail登录</a>
                 <a href="https://myaccount.google.com/language" target="_blank" class="tool-btn">Gmail更改语言</a>
-                <a href="https://myaccount.google.com/security" target="_blank" class="tool-btn">Gmail改密/辅助</a>
+                <a href="https://myaccount.google.com/security" target="_blank" class="tool-btn">Gmail改密、辅助</a>
                 <a href="https://myaccount.google.com/email" target="_blank" class="tool-btn">Gmail备用邮箱</a>
-                <a href="https://aistudio.google.com/" target="_blank" class="tool-btn">Google AI Studio</a>
 
                 <a href="https://gemini.google.com/app" target="_blank" class="tool-btn">Gemini官网</a>
+                <a href="https://gemini.google.com/gems/create" target="_blank" class="tool-btn">Gemini重命名</a>
                 <a href="https://goo.gle/freepro" target="_blank" class="tool-btn">Gemini 学生优惠</a>
-                <a href="https://batch.1key.me/" target="_blank" class="tool-btn">自动验证❶</a>
-                <a href="https://www.sheerid.help/" target="_blank" class="tool-btn">自动验证❷</a>
-                <a href="https://myaccount.google.com/family/details" target="_blank" class="tool-btn"><i class="fas fa-fire text-red-500 mr-1"></i>家庭群组共享</a>
+                <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="tool-btn">Gemini Pro退订</a>
+                <a href="https://payments.google.com/gp/w/home/settings?ec=AJ9oCCxrUsE3hiMVrpGas2PxrJln0%2FNCkEeqwBpBmUqzXbhn2SktZ8ccf5q97JoxFH%2FoOA1b6z%2FM" target="_blank" class="tool-btn">关闭付款地址</a>
 
                 <a href="https://policies.google.com/terms" target="_blank" class="tool-btn">Gmail归属地</a>
                 <a href="https://policies.google.com/country-association-form" target="_blank" class="tool-btn">Gmail改归属地</a>
-                <a href="https://gemini.google.com/gems/create" target="_blank" class="tool-btn">gemini改名</a>
-                <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="tool-btn">Gemini Pro退订</a>
-                <a href="https://payments.google.com/gp/w/home/settings?ec=AJ9oCCxrUsE3hiMVrpGas2PxrJln0%2FNCkEeqwBpBmUqzXbhn2SktZ8ccf5q97JoxFH%2FoOA1b6z%2FM" target="_blank" class="tool-btn">关闭付款地址</a>
+                <a href="https://batch.1key.me/" target="_blank" class="tool-btn">自动验证❶</a>
+                <a href="https://www.sheerid.help/" target="_blank" class="tool-btn">自动验证❷</a>
+                <a href="https://myaccount.google.com/family/details" target="_blank" class="tool-btn"><i class="fas fa-fire text-red-500 mr-1"></i>家庭群组共享</a>
 
                 <a href="https://x.com/settings/languages" target="_blank" class="tool-btn">Twitter语言设置</a>
                 <a href="https://x.com/settings/content_you_see" target="_blank" class="tool-btn">Twitter搜索设置</a>
@@ -225,7 +250,8 @@
 
                 <!-- LILISI -->
                 <div class="glass-panel rounded-2xl p-6 flex flex-col h-full">
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-gray-600 text-xl mb-4"><i class="fas fa-network-wired"></i></div>
+                    <!-- 修改：text-gray-600 -> text-indigo-500 -->
+                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-indigo-500 text-xl mb-4"><i class="fas fa-network-wired"></i></div>
                     <h3 class="text-lg font-bold text-ink">LILISI</h3>
                     <p class="text-2xl font-serif font-bold text-ink my-2">¥67.5 <span class="text-sm font-sans text-gray-400">/季</span></p>
                     <ul class="text-sm text-gray-500 space-y-2 mb-6 flex-grow">
@@ -239,9 +265,10 @@
         </section>
 
         <!-- 3. Clients Section -->
-        <section id="clients" class="mb-16 scroll-mt-24">
+        <section id="clients" class="mb-12 scroll-mt-24">
             <div class="w-full">
-                <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" class="w-full h-auto rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <!-- 保持 SVG 紧凑的高度 -->
+                <svg viewBox="0 0 900 490" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" class="w-full h-auto rounded-2xl shadow-lg border border-gray-100 bg-white">
                     <defs>
                         <!-- Windows: 蓝色渐变 -->
                         <linearGradient id="grad-win" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -288,7 +315,7 @@
                     </defs>
 
                     <!-- 背景板 -->
-                    <rect width="900" height="500" fill="#fcfcfc" rx="16" />
+                    <rect width="900" height="490" fill="#fcfcfc" rx="16" />
                     
                     <!-- 标题 -->
                     <text x="450" y="50" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">
@@ -296,7 +323,6 @@
                     </text>
 
                     <!-- 左侧区域框 -->
-                    <!-- 高度从340调整为330，留出更多底部空间 -->
                     <rect x="50" y="80" width="220" height="330" fill="#f3f4f6" stroke="#e5e7eb" stroke-dasharray="8,4" rx="12" />
                     <text x="160" y="110" font-family="sans-serif" font-size="16" fill="#666" text-anchor="middle" font-weight="bold">魔法软件</text>
 
@@ -363,7 +389,6 @@
                     <text x="635" y="245" font-family="sans-serif" font-size="12" font-weight="bold" fill="#65a30d" text-anchor="middle">自动加速通道</text>
 
                     <!-- 底部文字 -->
-                    <!-- 将 y 坐标从 440 下移至 450，增加上方间距 -->
                     <g transform="translate(50, 450)">
                         <text font-family="sans-serif" font-size="14" fill="#555">
                             <tspan font-weight="bold" fill="#3b82f6">场景区别：</tspan>
