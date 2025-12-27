@@ -7,6 +7,7 @@
 ### 免费节点
 
 ```
+https://www.bsbb.cc/
 https://openproxylist.com/
 https://anaer.github.io/Sub/clash.yaml
 https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
