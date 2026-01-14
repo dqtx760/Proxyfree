@@ -29,14 +29,18 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 
-附：**小火箭去除油管插件**
+附：**小火箭MITM广告过滤模块配置**
 ```
-1，打开火箭并链接上
-2，配置-本地文件（感叹号）---https解密打开---蒂娜生成新的CA证书---安装证书（如果需要密码卸载重新安装，就不需要了）
-3.手机设置--关于本机---证书信任设置---最下面启用完全信任
-4，打开https://whatshub.top/shadowrocket搜索youtub，点击“YouTube去广告”自动跳转到配置--模块，说明就下载好了
-4，关闭火箭链接再链接让火箭加载这个模块，之后就可以去油管测试这个插件效果登了。
+HTTPS解密配置
+
+打开火箭并链接上，点击配置-本地文件（感叹号）---https解密打开---点击生成新的CA证书---安装证书（如果需要密码卸载重新安装，就不需要了），手机设置--关于本机---证书信任设置---最下面启用完全信任
+
+MITM广告过滤模块安装
+https://9lnk.io/0ijs   #融合版
+https://9lnk.io/d6O0   #油管广告
+配置--模块，右上角“+”，粘贴URL,下载即可大大功告成！
 ```
+
 
 
 ## ✅软路由
