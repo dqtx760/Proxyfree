@@ -13,16 +13,9 @@ https://anaer.github.io/Sub/clash.yaml
 https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 ```
 
-### 付费节点
+### 付费节点:[点此查看](https://77.dqtx.cc/) 
 
-| 平台 | 注册 | 说明 |
-|------|------|------|
-| ![可乐云](https://img.shields.io/badge/可乐云-blueviolet) | [点此注册](https://cokeyun.buyzur.com/#/register?code=L2FOV7Yb) | 免费送1小时时长，低至9.9元/🈷️，300G流量 |
-| ![快雷GO](https://img.shields.io/badge/快雷GO-red) | [点击注册](https://www.cnct.中国/register?code=dl3bM8in) | ¥20/月 50GB流量/月、IEPL专线 |
-| ![LILISI](https://img.shields.io/badge/LILISI-darkgreen) | [点此注册](https://my.lilisi.cc/#/register?code=LqO3zqD3) | 免费册送2小时长，低至67.50/每季 9999GB/月 ，公网中转线路，最高传输达2Gb/s |
-| ![Bitz Net](https://img.shields.io/badge/BitzNet-lightgreen) | [点击注册](https://dir3.bnaffloop.com/#/register?code=UfWht5u0) | 免费送5G免费流量，低至69.99/季 80GB/月  IEPL专线 |
 
-![小猫编程动图](https://mmbiz.qpic.cn/mmbiz_gif/gz2sdHyQbaZc0dIlEbMqjanFnBSmeLcww0YAecX8fuicqdUW4goZhMlKxhdaNzMDA9XgZD5CfffmqsEqkUibrySA/640?wx_fmt=gif&from=appmsg)
 
 ## ✅代理客户端
 
@@ -31,10 +24,19 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev/releases) | ✅       | ✅    | ✅     |      |         |      |
 | [V2rayN](https://github.com/2dust/v2rayN/releases)           | ✅       |      |       |      |         |      |
 | [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |  ✅        |      |
-| [FlClash](https://github.com/chen08209/FlClash/releases)   | ✅       | ✅    | ✅     |      |    ✅      |      |
+| [FlClash](https://github.com/chen08209/FlClash/releases) （推荐）  | ✅       | ✅    | ✅     |      |    ✅      |      |
 | [karing](https://karing.app/quickstart/)   | ✅       | ✅    | ✅     |  ✅     |    ✅      |      |
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
+
+附：**小火箭去除油管插件**
+```
+1，打开火箭并链接上
+2，配置-本地文件（感叹号）---https解密打开---蒂娜生成新的CA证书---安装证书（如果需要密码卸载重新安装，就不需要了）
+3.手机设置--关于本机---证书信任设置---最下面启用完全信任
+4，打开https://whatshub.top/shadowrocket搜索youtub，点击“YouTube去广告”自动跳转到配置--模块，说明就下载好了
+4，关闭火箭链接再链接让火箭加载这个模块，之后就可以去油管测试这个插件效果登了。
+```
 
 
 ## ✅软路由
