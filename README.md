@@ -29,7 +29,7 @@ https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 
-附：**小火箭MITM广告过滤模块配置**
+附：**自用小火箭MITM广告过滤模块**
 ```
 HTTPS解密配置
 
