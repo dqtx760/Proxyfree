@@ -51,18 +51,26 @@ https://github.com/eamonxg/luci-theme-aurora
 https://github.com/SAENE/luci-theme-design
 
 ## ✅Telegram
+**+86新注册电报，绕过sms收费**
 
-- telegram使用passkey登录教程：隐私与安全
+1、换IP，建议，美 日 新 节点，不建议香港节点。
+2、换客户端，telegramx，或者这两个。
+[telegramx](https://github.com/TGX-Android/Telegram-X/releases) [第三方客户端](https://github.com/forkgram/TelegramAndroid/releases) [飞机旧版](https://www.apkmirror.com/uploads/?devcategory=telegram-fz-llc) 
 
-- 脑浏览器打开Telegram链接不能自动跳转到客户端
-  
-  替换编辑文件：[点此下载](https://lz.qaiu.top/parser?url=https://wwbxq.lanzouq.com/iZYKk3ddumhe)
+3、卡bug，可以邮箱验证优先邮箱验证。遇到付费解密强制重启app，多试几次有概率可以跳过。
+
+**小技巧**
+
+- telegram使用passkey登录设置：隐私与安全里开启
+
+- 脑浏览器打开Telegram链接不能自动跳转到客户端，替换编辑文件：[点此下载](https://lz.qaiu.top/parser?url=https://wwbxq.lanzouq.com/iZYKk3ddumhe)
   
   用记事本打开，把里面的路径改成自己的，⚠️注意默认的路径是单斜杠改成双斜杠再替换
 ```
 D:\software\Telegram\Telegram.exe      #默认单斜杠   ❌
 D:\\software\\Telegram\\Telegram.exe   #改双斜线     ✅
 ```
+
 
 
 - Telegram汉化包：https://t.me/setlanguage/classic-zh-cn
