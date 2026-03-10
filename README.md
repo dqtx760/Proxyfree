@@ -41,7 +41,7 @@ https://raw.githubusercontent.com/ GitHub引擎
 | [karing](https://karing.app/quickstart/)   | ✅       | ✅    | ✅     |  ✅     |    ✅      |      |
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
-
+| [ClashBar](https://github.com/Sitoi/ClashBar/releases/tag/v0.1.6) |         |   ✅   |       |     |         |      |
 附：**自用小火箭MITM广告过滤模块**
 ```
 HTTPS解密配置
