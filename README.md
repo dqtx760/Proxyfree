@@ -37,11 +37,15 @@ https://raw.githubusercontent.com/ GitHub引擎
 | [Clash Verge](https://github.com/clash-verge-rev/clash-verge-rev/releases) | ✅       | ✅    | ✅     |      |         |      |
 | [V2rayN](https://github.com/2dust/v2rayN/releases)           | ✅       |      |       |      |         |      |
 | [sparkle](https://github.com/xishang0128/sparkle/releases)   | ✅       | ✅    | ✅     |      |  ✅        |      |
+| [Clash Party](https://github.com/mihomo-party-org/clash-party/releases/tag/v1.9.2) （推荐）  | ✅       | ✅    | ✅     |      |    ✅      |      |
 | [FlClash](https://github.com/chen08209/FlClash/releases) （推荐）  | ✅       | ✅    | ✅     |      |    ✅      |      |
 | [karing](https://karing.app/quickstart/)   | ✅       | ✅    | ✅     |  ✅     |    ✅      |      |
 | [Hiddify](https://github.com/hiddify/hiddify-app/releases)   | ✅       | ✅    | ✅     |      | ✅       |      |
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 | [ClashBar](https://github.com/Sitoi/ClashBar/releases/tag/v0.1.6) |         |   ✅   |       |     |         |      |
+
+如果开启Tun，**栈模式推荐：System**  网速就会很快
+
 附：**自用小火箭MITM广告过滤模块**
 ```
 HTTPS解密配置
