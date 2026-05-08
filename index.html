@@ -5,306 +5,342 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>数字边境 · 网络服务指南</title>
     <meta name="description" content="全球优质网络服务，高速流量套餐与客户端下载。">
-    
-    <!-- 预连接连接以加速资源加载 -->
+
     <link rel="preconnect" href="https://fonts.loli.net">
     <link rel="preconnect" href="https://gstatic.loli.net" crossorigin>
-    
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.loli.net/css2?family=Open+Sans:wght@400;600;700&family=Merriweather:wght@400;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- TailwindCSS Configuration -->
-    <script>
-        window.tailwind = {
-            config: {
-                theme: {
-                    extend: {
-                        fontFamily: {
-                            sans: ['Inter', 'system-ui', 'sans-serif'],
-                            serif: ['Noto Serif SC', 'serif'],
-                            mono: ['Fira Code', 'monospace'],
-                        },
-                        colors: {
-                            page: '#F8F6F5', // 背景色
-                            ink: '#010101',  // 文字色
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
-        /* 全局配色变量 */
         :root {
-            --bg-color: #F8F6F5;
-            --text-color: #010101;
+            /* Workable Design System */
+            --color-canvas-porcelain: #fff5ee;
+            --color-white: #ffffff;
+            --color-midnight-ink: #0f161e;
+            --color-harbor-mist: #333942;
+            --color-forest-canopy: #012620;
+            --color-deep-teal: #004038;
+            --color-fresh-teal: #00f5dc;
+            --color-muted-sage: #00544c;
+            --color-soft-peach: #fde8ce;
+            --color-muted-mandarin: #ffdcbf;
+            --color-sky-haze: #bee9f4;
+            --color-lime-glow: #d5ff4d;
+            --color-spring-bud: #7edcaf;
+
+            --bg-primary: var(--color-canvas-porcelain);
+            --bg-elevated: var(--color-white);
+            --bg-card: var(--color-white);
+            --text-primary: var(--color-midnight-ink);
+            --text-secondary: var(--color-harbor-mist);
+            --accent: var(--color-deep-teal);
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--color-canvas-porcelain);
+            color: var(--text-primary);
+            font-family: 'Open Sans', 'Inter', sans-serif;
         }
 
-        /* 定制渐变 */
-        .candy-gradient {
-            background: linear-gradient(to right, #F69AAC, #DF95E3, #7DBDE9);
+        .font-heading {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
         }
-        
-        /* 玻璃拟态卡片 */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.65);
-            -webkit-backdrop-filter: blur(12px);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+        .workable-card {
+            background: var(--color-white);
+            border: 1px solid rgba(15, 22, 30, 0.1);
+            border-radius: 16px;
             transition: all 0.3s ease;
         }
-        
-        .glass-panel:hover {
+
+        .workable-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 8px 24px rgba(0, 64, 56, 0.12);
         }
-        
-        /* 模态框样式 */
-        .modal { 
-            transition: opacity 0.3s ease, visibility 0.3s ease; 
-            opacity: 0; 
-            visibility: hidden; 
-            z-index: 50; 
-        }
-        .modal.active { 
-            opacity: 1; 
-            visibility: visible; 
-        }
-        .modal-content { 
-            transform: scale(0.95); 
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); 
-        }
-        .modal.active .modal-content { 
-            transform: scale(1); 
-        }
-        
-        /* 工具按钮样式 */
+
         .tool-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ffffff;
-            color: #010101;
+            background-color: var(--color-soft-peach);
+            color: var(--color-midnight-ink);
+            font-family: 'Open Sans', sans-serif;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 0.9rem;
             padding: 0.75rem 1rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 16px;
+            border: 2px solid var(--color-deep-teal);
             transition: all 0.2s;
             text-align: center;
             height: 100%;
-        }
-        .tool-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(223, 149, 227, 0.2);
-            border-color: #DF95E3;
-            color: #010101;
+            letter-spacing: 0.02em;
         }
 
-        /* SVG 交互 */
-        .interactive-group { cursor: pointer; transition: filter 0.2s ease; }
-        .interactive-group:hover { filter: brightness(0.95); }
-        svg a { cursor: pointer; }
-        
-        /* 导航链接悬停效果 */
-        .nav-link-hover {
+        .tool-btn:hover {
+            background-color: var(--color-deep-teal);
+            color: var(--color-white);
+        }
+
+        .tool-btn:hover {
+            border-color: var(--color-deep-teal);
+            color: var(--color-white);
+            background: var(--color-deep-teal);
+        }
+
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(0, 64, 56, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 64, 56, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .teal-gradient {
+            background: linear-gradient(135deg, var(--color-fresh-teal) 0%, var(--color-deep-teal) 50%, var(--color-muted-sage) 100%);
+        }
+
+        .teal-gradient:hover {
+            background: linear-gradient(135deg, var(--color-deep-teal) 0%, var(--color-fresh-teal) 100%);
+        }
+
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 50;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .nav-link {
             position: relative;
+            color: var(--color-harbor-mist);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            transition: color 0.3s;
         }
-        .nav-link-hover::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #DF95E3;
-            transition: width 0.3s;
+        .nav-link:hover {
+            color: var(--color-deep-teal);
         }
-        .nav-link-hover:hover::after {
-            width: 100%;
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            color: var(--color-deep-teal);
+            border-bottom: 1px solid rgba(0, 64, 56, 0.2);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
         }
+
+        .interactive-group { cursor: pointer; transition: filter 0.2s ease; }
+        .interactive-group:hover { filter: brightness(1.15); }
     </style>
 </head>
 
-<body class="font-sans flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-    <!-- 背景装饰网格 -->
-    <div class="fixed inset-0 -z-10 opacity-40 pointer-events-none" 
-         style="background-image: radial-gradient(#e5e7eb 1px, transparent 1px); background-size: 24px 24px;">
-    </div>
+    <!-- Removed blurry green background grid per user request -->
+    <!-- <div class="fixed inset-0 -z-10 bg-grid">
+    </div> -->
 
-    <!-- Header -->
-    <header class="w-full border-b border-gray-200 bg-[#F8F6F5]/90 backdrop-blur-sm sticky top-0 z-40">
+    <header class="w-full border-b border-[rgba(0,64,56,0.1)] bg-[var(--color-canvas-porcelain)]/95 backdrop-blur-sm sticky top-0 z-40">
         <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-            
-            <!-- Logo (左侧) -->
             <a href="#" class="flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <div class="w-8 h-8 rounded-lg candy-gradient flex items-center justify-center text-white shadow-md">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center text-[var(--color-white)] shadow-lg" style="background: linear-gradient(135deg, var(--color-fresh-teal), var(--color-deep-teal))">
                     <i class="fas fa-globe"></i>
                 </div>
-                <span class="text-xl font-serif font-bold text-ink">Digital<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#F69AAC] to-[#DF95E3]">Frontier</span></span>
+                <span class="text-xl font-heading text-[var(--color-deep-teal)]">
+                    Signal
+                </span>
             </a>
 
-            <!-- Header 导航栏 (右侧) -->
-            <!-- 修改：添加 mr-3 使其向左偏移，链接添加渐变色类名 -->
-            <nav class="hidden md:flex items-center gap-6 lg:gap-8 mr-3">
-                <a href="https://yishijie.gitlab.io/ziyuan/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">Github加速</a>
-                <a href="https://app.dqtx.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">数字工坊</a>
-                <a href="https://key.dqtx.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">密码生成</a>
-                <a href="https://www.speedtest.net/zh-Hans" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">网速测试</a>
-                <a href="https://ping0.cc/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">IP纯净度</a>
-                <a href="https://iplark.com/" target="_blank" class="text-sm font-bold bg-clip-text text-transparent bg-gradient-to-r from-gray-600 to-gray-900 hover:from-[#F69AAC] hover:to-[#DF95E3] transition-all nav-link-hover">IP查询</a>
+            <nav class="hidden md:flex items-center gap-6 lg:gap-8">
+                <a href="https://github.1zyq1.com/" target="_blank" class="nav-link">Github加速</a>
+                <a href="https://app.dqtx.cc/" target="_blank" class="nav-link">数字工坊</a>
+                <a href="https://key.dqtx.cc/" target="_blank" class="nav-link">密码生成</a>
+                <a href="https://www.speedtest.net/zh-Hans" target="_blank" class="nav-link">网速测试</a>
+                <a href="https://ping0.cc/" target="_blank" class="nav-link">IP纯净度</a>
+                <a href="https://iplark.com/" target="_blank" class="nav-link">IP查询</a>
             </nav>
-
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-6 pt-8 pb-16 flex-grow w-full">
-        
-        <!-- 1. Tools Section -->
-        <section id="tools" class="mb-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <a href="chrome://settings/languages" target="_blank" class="tool-btn">chrome语言</a>
+
+        <section id="tools" class="mb-14">
+            <h2 class="section-title text-2xl flex items-center gap-3">
+                <i class="fas fa-tools"></i>
+                常用工具
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                <a href="chrome://settings/languages" target="_blank" class="tool-btn">Chrome语言</a>
                 <a href="https://gmailaliasgenerator.com/index.html?lang=zh-CN" target="_blank" class="tool-btn">Gmail子邮箱</a>
-                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" class="tool-btn">Telegram汉化包</a>
-                <a href="https://key.dqtx.cc/" target="_blank" class="tool-btn">密码&临时邮箱</a>
+                <a href="https://t.me/setlanguage/classic-zh-cn" target="_blank" class="tool-btn">Telegram汉化</a>
+                <a href="https://key.dqtx.cc/" target="_blank" class="tool-btn">密码&邮箱</a>
                 <a href="https://hero-sms.com/?ref=497256" target="_blank" class="tool-btn">HeroSMS接码</a>
 
-                <a href="https://accounts.google.com/login" target="_blank" class="tool-btn">google登录</a>
-                <a href="https://myaccount.google.com/language" target="_blank" class="tool-btn">google更改语言</a>
-                <a href="https://support.google.com/accounts/answer/3463280?hl=zh-Hans&co=GENIE.Platform=Desktop" target="_blank" class="tool-btn">google手机换绑</a>
-                <a href="https://myaccount.google.com/security" target="_blank" class="tool-btn">google改密&辅助资料</a>
-                <a href="https://myaccount.google.com/email" target="_blank" class="tool-btn">google备用邮箱</a>
+                <a href="https://accounts.google.com/login" target="_blank" class="tool-btn">Google登录</a>
+                <a href="https://myaccount.google.com/language" target="_blank" class="tool-btn">Google语言</a>
+                <a href="https://support.google.com/accounts/answer/3463280?hl=zh-Hans&co=GENIE.Platform=Desktop" target="_blank" class="tool-btn">Google换绑</a>
+                <a href="https://myaccount.google.com/security" target="_blank" class="tool-btn">Google安全</a>
+                <a href="https://myaccount.google.com/email" target="_blank" class="tool-btn">备用邮箱</a>
 
                 <a href="https://gemini.google.com/app" target="_blank" class="tool-btn">Gemini官网</a>
                 <a href="https://gemini.google.com/gems/create" target="_blank" class="tool-btn">Gemini重命名</a>
-                <a href="https://goo.gle/freepro" target="_blank" class="tool-btn">Gemini学生优惠</a>
-                <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="tool-btn">Gemini Pro退订</a>
-                <a href="https://payments.google.com/gp/w/home/settings?ec=AJ9oCCxrUsE3hiMVrpGas2PxrJln0%2FNCkEeqwBpBmUqzXbhn2SktZ8ccf5q97JoxFH%2FoOA1b6z%2FM" target="_blank" class="tool-btn">关闭付款地址</a>
+                <a href="https://goo.gle/freepro" target="_blank" class="tool-btn">学生优惠</a>
+                <a href="https://play.google.com/store/account/subscriptions" target="_blank" class="tool-btn">退订</a>
+                <a href="https://payments.google.com/gp/w/home/settings" target="_blank" class="tool-btn">关闭付款</a>
 
-                <a href="https://policies.google.com/terms" target="_blank" class="tool-btn">google归属地</a>
-                <a href="https://policies.google.com/country-association-form" target="_blank" class="tool-btn">google改归属地</a>
+                <a href="https://policies.google.com/terms" target="_blank" class="tool-btn">归属地</a>
+                <a href="https://policies.google.com/country-association-form" target="_blank" class="tool-btn">改归属地</a>
                 <a href="https://batch.1key.me/" target="_blank" class="tool-btn">自动验证❶</a>
                 <a href="https://www.sheerid.help/" target="_blank" class="tool-btn">自动验证❷</a>
-                <a href="https://myaccount.google.com/family/details" target="_blank" class="tool-btn"><i class="fas fa-fire text-red-500 mr-1"></i>家庭群组共享</a>
+                <a href="https://myaccount.google.com/family/details" target="_blank" class="tool-btn"><i class="fas fa-fire text-red-400 mr-1"></i>家庭共享</a>
 
-                <a href="https://x.com/settings/languages" target="_blank" class="tool-btn">Twitter语言设置</a>
-                <a href="https://x.com/settings/content_you_see" target="_blank" class="tool-btn">Twitter搜索设置</a>
-                <a href="https://x.com/settings/password" target="_blank" class="tool-btn">Twitter密码更改</a>
-                <a href="https://chromewebstore.google.com/detail/calm-twitter/cknklikacoaeledfaldmhabmldkldocj" target="_blank" class="tool-btn">Twitter广告隐藏</a>
-                <a href="https://chromewebstore.google.com/detail/kpiighgkabmpdlafpkmffbiimglmjadf" target="_blank" class="tool-btn">Twitter右侧栏</a>
+                <a href="https://x.com/settings/languages" target="_blank" class="tool-btn">X语言设置</a>
+                <a href="https://x.com/settings/content_you_see" target="_blank" class="tool-btn">X搜索设置</a>
+                <a href="https://x.com/settings/password" target="_blank" class="tool-btn">X密码更改</a>
+                <a href="https://chromewebstore.google.com/detail/calm-twitter/cknklikacoaeledfaldmhabmldkldocj" target="_blank" class="tool-btn">X广告隐藏</a>
+                <a href="https://chromewebstore.google.com/detail/kpiighgkabmpdlafpkmffbiimglmjadf" target="_blank" class="tool-btn">X右侧栏</a>
             </div>
         </section>
 
-        <!-- 2. Services Section -->
         <section id="services" class="mb-16 scroll-mt-24">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- 可乐云 -->
-                <div class="glass-panel rounded-2xl p-6 flex flex-col h-full">
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-[#F69AAC] text-xl mb-4"><i class="fas fa-bolt"></i></div>
-                    <h3 class="text-lg font-bold text-ink">可乐云</h3>
-                    <p class="text-2xl font-serif font-bold text-ink my-2">¥9.9 <span class="text-sm font-sans text-gray-400">/月</span></p>
-                    <ul class="text-sm text-gray-500 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>300GB 流量</li>
-                        <li><i class="fas fa-gift text-pink-400 mr-2"></i>新用户送1小时</li>
+            <h2 class="section-title text-2xl flex items-center gap-3">
+                <i class="fas fa-cloud"></i>
+                流量服务
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="workable-card rounded-2xl p-6 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-2xl bg-[var(--color-white)] flex items-center justify-center text-[var(--color-deep-teal)] text-xl mb-4 border border-[rgba(0,64,56,0.2)]">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-[var(--color-midnight-ink)]">最萌の云</h3>
+                    <p class="text-2xl font-heading italic font-bold text-[var(--color-midnight-ink)] my-2">
+                        ¥10 <span class="text-sm font-sans text-[var(--color-harbor-mist)]">/100G</span>
+                    </p>
+                    <ul class="text-sm text-[var(--color-harbor-mist)] space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>100GB 流量</li>
+                        <li><i class="fas fa-gift text-[var(--color-deep-teal)] mr-2"></i>速度还不错</li>
                     </ul>
-                    <a href="https://cokecloud.cyou/#/register?code=L2FOV7Yb" target="_blank" class="block w-full py-2 text-center rounded-lg candy-gradient text-white font-bold hover:shadow-md transition-all">立即注册</a>
+                    <a href="https://main.cute-cloud.de/#/register?code=X2LqAtRR" target="_blank" class="block w-full py-2 text-center rounded-2xl teal-gradient text-[var(--color-white)] font-heading font-bold hover:shadow-lg transition-all">
+                        立即注册
+                    </a>
                 </div>
 
-                <!-- 快雷GO -->
-                <div class="glass-panel rounded-2xl p-6 flex flex-col h-full border-2 border-[#F69AAC]/20 relative">
-                    <div class="absolute top-0 right-0 candy-gradient text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg shadow-sm">推荐</div>
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-[#DF95E3] text-xl mb-4"><i class="fas fa-film"></i></div>
-                    <h3 class="text-lg font-bold text-ink">快雷GO</h3>
-                    <p class="text-2xl font-serif font-bold text-ink my-2">¥20 <span class="text-sm font-sans text-gray-400">/月</span></p>
-                    <ul class="text-sm text-gray-500 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>150GB流量/月、IEPL</li>
-                        <li><i class="fas fa-star text-yellow-500 mr-2"></i>新用户享9折优惠</li>
+                <div class="workable-card rounded-2xl p-6 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-2xl bg-[var(--color-white)] flex items-center justify-center text-[var(--color-deep-teal)] text-xl mb-4 border border-[rgba(0,64,56,0.2)]">
+                        <i class="fas fa-feather"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-[var(--color-midnight-ink)]">蜂鸟云</h3>
+                    <p class="text-2xl font-heading italic font-bold text-[var(--color-midnight-ink)] my-2">
+                        ¥12.9 <span class="text-sm font-sans text-[var(--color-harbor-mist)]">/月</span>
+                    </p>
+                    <ul class="text-sm text-[var(--color-harbor-mist)] space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>100GB 流量</li>
+                        <li><i class="fas fa-rocket text-[var(--color-deep-teal)] mr-2"></i>速度很快</li>
                     </ul>
-                    <a href="https://kuailei.nnbhhxk.com/register?code=dl3bM8in" target="_blank" class="block w-full py-2 text-center rounded-lg candy-gradient text-white font-bold hover:shadow-md transition-all">立即注册</a>
+                    <a href="https://nb.fnynb.com/#/?code=MTPefPw2" target="_blank" class="block w-full py-2 text-center rounded-2xl teal-gradient text-[var(--color-white)] font-heading font-bold hover:shadow-lg transition-all">
+                        立即注册
+                    </a>
                 </div>
 
-                <!-- Bitz Net -->
-                <div class="glass-panel rounded-2xl p-6 flex flex-col h-full">
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-[#7DBDE9] text-xl mb-4"><i class="fas fa-gamepad"></i></div>
-                    <h3 class="text-lg font-bold text-ink">Bitz Net</h3>
-                    <p class="text-2xl font-serif font-bold text-ink my-2">¥69.9 <span class="text-sm font-sans text-gray-400">/季</span></p>
-                    <ul class="text-sm text-gray-500 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-rocket text-purple-500 mr-2"></i>80G流量/月、IEPL</li>
-                        <li><i class="fas fa-gift text-pink-400 mr-2"></i>新用户送5G流量</li>
+                <div class="workable-card relative rounded-2xl p-6 flex flex-col h-full border-[var(--color-deep-teal)]">
+                    <div class="absolute top-0 right-0 teal-gradient text-[var(--color-white)] text-xs font-bold px-3 py-1 rounded-bl-sm rounded-tr-sm">
+                        推荐
+                    </div>
+                    <div class="w-12 h-12 rounded-xl bg-[var(--color-soft-peach)] flex items-center justify-center text-[var(--color-deep-teal)] text-xl mb-4 border-2 border-[var(--color-deep-teal)]">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-[var(--color-midnight-ink)]">快雷GO</h3>
+                    <p class="text-2xl font-heading italic font-bold text-[var(--color-midnight-ink)] my-2">
+                        ¥20 <span class="text-sm font-sans text-[var(--color-harbor-mist)]">/月</span>
+                    </p>
+                    <ul class="text-sm text-[var(--color-harbor-mist)] space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>150GB/月、IEPL</li>
+                        <li><i class="fas fa-star text-yellow-400 mr-2"></i>新用户9折</li>
                     </ul>
-                    <a href="https://dir3.bnaffloop.com/#/register?code=UfWht5u0" target="_blank" class="block w-full py-2 text-center rounded-lg candy-gradient text-white font-bold hover:shadow-md transition-all">立即注册</a>
+                    <a href="https://kuailei.nnbhhxk.com/register?code=dl3bM8in" target="_blank" class="block w-full py-2 text-center rounded-2xl teal-gradient text-[var(--color-white)] font-heading font-bold hover:shadow-lg transition-all">
+                        立即注册
+                    </a>
                 </div>
 
-                <!-- LILISI -->
-                <div class="glass-panel rounded-2xl p-6 flex flex-col h-full">
-                    <!-- 修改：text-gray-600 -> text-indigo-500 -->
-                    <div class="w-12 h-12 rounded-xl bg-gray-100 flex items-center justify-center text-indigo-500 text-xl mb-4"><i class="fas fa-network-wired"></i></div>
-                    <h3 class="text-lg font-bold text-ink">LILISI</h3>
-                    <p class="text-2xl font-serif font-bold text-ink my-2">¥67.5 <span class="text-sm font-sans text-gray-400">/季</span></p>
-                    <ul class="text-sm text-gray-500 space-y-2 mb-6 flex-grow">
-                        <li><i class="fas fa-infinity text-blue-500 mr-2"></i>超大流量、公网中转</li>
-                        <li><i class="fas fa-gift text-pink-400 mr-2"></i>新用户送2小时</li>
+                <div class="workable-card rounded-2xl p-6 flex flex-col h-full">
+                    <div class="w-12 h-12 rounded-2xl bg-[var(--color-white)] flex items-center justify-center text-[var(--color-deep-teal)] text-xl mb-4 border border-[rgba(0,64,56,0.2)]">
+                        <i class="fas fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-lg font-heading font-bold text-[var(--color-midnight-ink)]">奈云</h3>
+                    <p class="text-2xl font-heading italic font-bold text-[var(--color-midnight-ink)] my-2">
+                        ¥168 <span class="text-sm font-sans text-[var(--color-harbor-mist)]">/年</span>
+                    </p>
+                    <ul class="text-sm text-[var(--color-harbor-mist)] space-y-2 mb-6 flex-grow">
+                        <li><i class="fas fa-infinity text-blue-400 mr-2"></i>168G 流量</li>
+                        <li><i class="fas fa-gift text-[var(--color-deep-teal)] mr-2"></i>新用户送2小时</li>
                     </ul>
-                    <a href="https://my.lilisi.cc/#/register?code=LqO3zqD3" target="_blank" class="block w-full py-2 text-center rounded-lg candy-gradient text-white font-bold hover:shadow-md transition-all">立即注册</a>
+                    <a href="http://6.vip.v2ny.me?path=register&code=GBoBQfPI" target="_blank" class="block w-full py-2 text-center rounded-2xl teal-gradient text-[var(--color-white)] font-heading font-bold hover:shadow-lg transition-all">
+                        立即注册
+                    </a>
                 </div>
-
             </div>
         </section>
 
-        <!-- 3. Clients Section -->
         <section id="clients" class="mb-12 scroll-mt-24">
+            <h2 class="section-title text-2xl flex items-center gap-3">
+                <i class="fas fa-desktop"></i>
+                客户端部署
+            </h2>
             <div class="w-full">
-                <!-- 保持 SVG 紧凑的高度 -->
-                <svg viewBox="0 0 900 490" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" class="w-full h-auto rounded-2xl shadow-lg border border-gray-100 bg-white">
+                <svg viewBox="0 0 900 490" xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" class="w-full h-auto rounded-xl shadow-lg border border-[rgba(0,64,56,0.2)] bg-[var(--color-white)]">
                     <defs>
                         <!-- Windows: 蓝色渐变 -->
                         <linearGradient id="grad-win" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#0078d4;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#005a9e;stop-opacity:1" />
                         </linearGradient>
-                        
+
                         <!-- Android: 绿色渐变 -->
                         <linearGradient id="grad-android" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#3ddc84;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
                         </linearGradient>
-                        
+
                         <!-- iPhone: 灰色/黑色渐变 -->
                         <linearGradient id="grad-ios" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#6b7280;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#374151;stop-opacity:1" />
                         </linearGradient>
-                        
+
                         <!-- OpenWrt: 紫色渐变 -->
                         <linearGradient id="grad-openwrt" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
                             <stop offset="100%" style="stop-color:#6d28d9;stop-opacity:1" />
                         </linearGradient>
 
-                        <!-- Candy Gradient 用于线条描边 -->
-                        <linearGradient id="grad-candy-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#F69AAC;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#DF95E3;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#7DBDE9;stop-opacity:1" />
+                        <!-- 金色渐变用于线条描边 -->
+                        <linearGradient id="grad-gold-stroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#c9a962;stop-opacity:1" />
+                            <stop offset="50%" style="stop-color:#d4b876;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#8b7355;stop-opacity:1" />
                         </linearGradient>
-                        
+
                         <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
-                            <path d="M0,0 L0,6 L9,3 z" fill="#9ca3af" />
+                            <path d="M0,0 L0,6 L9,3 z" fill="#c9a962" />
                         </marker>
-                        
+
                         <filter id="glow">
                             <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                             <feMerge>
@@ -315,22 +351,22 @@
                     </defs>
 
                     <!-- 背景板 -->
-                    <rect width="900" height="490" fill="#fcfcfc" rx="16" />
-                    
+                    <rect width="900" height="490" fill="#0f2137" rx="16" />
+
                     <!-- 标题 -->
-                    <text x="450" y="50" font-family="sans-serif" font-size="24" font-weight="bold" fill="#333" text-anchor="middle">
-                        网络服务部署逻辑：<tspan fill="#666">终端独立</tspan> vs <tspan fill="#8b5cf6">网关接管</tspan>
+                    <text x="450" y="50" font-family="Playfair Display, serif" font-size="24" font-weight="700" fill="#f5f0e6" text-anchor="middle">
+                        网络服务部署逻辑：<tspan fill="#a8b4c4">终端独立</tspan> vs <tspan fill="#8b5cf6">网关接管</tspan>
                     </text>
 
                     <!-- 左侧区域框 -->
-                    <rect x="50" y="80" width="220" height="330" fill="#f3f4f6" stroke="#e5e7eb" stroke-dasharray="8,4" rx="12" />
-                    <text x="160" y="110" font-family="sans-serif" font-size="16" fill="#666" text-anchor="middle" font-weight="bold">魔法软件</text>
+                    <rect x="50" y="80" width="220" height="330" fill="#132744" stroke="#c9a962" stroke-dasharray="8,4" rx="12" />
+                    <text x="160" y="110" font-family="Crimson Pro, serif" font-size="16" fill="#c9a962" text-anchor="middle" font-weight="600">魔法软件</text>
 
                     <!-- Windows (蓝色) -->
-                    <a href="https://github.com/chen08209/FlClash/releases" target="_blank">
+                    <a href="https://github.com/dqtx760/Proxyfree" target="_blank">
                         <g class="interactive-group" transform="translate(80, 140)">
                             <rect width="160" height="70" rx="8" fill="url(#grad-win)" filter="url(#glow)" />
-                            <text x="80" y="40" font-family="sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Windows</text>
+                            <text x="80" y="40" font-family="Crimson Pro, serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">Windows</text>
                         </g>
                     </a>
 
@@ -338,44 +374,44 @@
                     <a href="https://github.com/KaringX/karing/releases" target="_blank">
                         <g class="interactive-group" transform="translate(80, 230)">
                             <rect width="160" height="70" rx="8" fill="url(#grad-android)" filter="url(#glow)" />
-                            <text x="80" y="40" font-family="sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Android</text>
+                            <text x="80" y="40" font-family="Crimson Pro, serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">Android</text>
                         </g>
                     </a>
 
                     <!-- iPhone (深灰色) -->
-                    <a href="https://www.xiaohongshu.com/goods-detail/68d7e7c84daabe000141febd?xsec_token=XB4n2iPUVOUILV4H34jYC8QDtj71FgMBloSJOGxgQDoWU=&xsec_source=app_share&instation_link=xhsdiscover%3A%2F%2Fgoods_detail%2F68d7e7c84daabe000141febd%3Ftrade_ext%3DeyJjaGFubmVsSW5mbyI6bnVsbCwiZHNUb2tlbkluZm8iOm51bGwsInNoYXJlTGluayI6Imh0dHBzOi8vd3d3LnhpYW9ob25nc2h1LmNvbS9nb29kcy1kZXRhaWwvNjhkN2U3Yzg0ZGFhYmUwMDAxNDFmZWJkP2FwcHVpZD01Y2UwZDNhNzAwMDAwMDAwMTIwMmUzMWIiLCJsaXZlSW5mbyI6bnVsbCwic2hvcEluZm8iOm51bGwsImdvb2RzTm90ZUluZm8iOm51bGwsImNoYXRJbmZvIjpudWxsLCJzZWFyY2hJbmZvIjpudWxsLCJwcmVmZXIiOm51bGx9%26rate_limit_meta%3DitemId%253D68d7e7c84daabe000141febc%26source%3D%26rn%3Dtrue&xhsshare=CopyLink&appuid=5ce0d3a7000000001202e31b&apptime=1761059878&share_id=589e4072aab947cd9432f91158d2d315" target="_blank">
+                    <a href="https://www.xiaohongshu.com/goods-detail/68d7e7c84daabe000141febd" target="_blank">
                         <g class="interactive-group" transform="translate(80, 320)">
                             <rect width="160" height="70" rx="8" fill="url(#grad-ios)" filter="url(#glow)" />
-                            <text x="80" y="40" font-family="sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">iPhone</text>
+                            <text x="80" y="40" font-family="Crimson Pro, serif" font-size="16" font-weight="600" fill="white" text-anchor="middle">iPhone</text>
                         </g>
                     </a>
 
                     <!-- OpenWrt (紫色) -->
                     <a href="https://op.dqtx.cc/" target="_blank">
-                        <g class="interactive-group interactive-group-center" transform="translate(380, 200)">
+                        <g class="interactive-group" transform="translate(380, 200)">
                             <rect x="0" y="0" width="200" height="130" rx="16" fill="url(#grad-openwrt)" stroke="#000" stroke-width="0" filter="url(#glow)" />
                             <!-- 路由器天线 -->
-                            <line x1="40" y1="0" x2="40" y2="-25" stroke="#7e22ce" stroke-width="4" stroke-linecap="round" />
-                            <line x1="160" y1="0" x2="160" y2="-25" stroke="#7e22ce" stroke-width="4" stroke-linecap="round" />
-                            <text x="100" y="60" font-family="sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">OpenWrt</text>
-                            <text x="100" y="90" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">点击获取技术服务</text>
+                            <line x1="40" y1="0" x2="40" y2="-25" stroke="#a78bfa" stroke-width="4" stroke-linecap="round" />
+                            <line x1="160" y1="0" x2="160" y2="-25" stroke="#a78bfa" stroke-width="4" stroke-linecap="round" />
+                            <text x="100" y="60" font-family="Crimson Pro, serif" font-size="22" font-weight="600" fill="white" text-anchor="middle">OpenWrt</text>
+                            <text x="100" y="90" font-family="Crimson Pro, serif" font-size="12" fill="#fff" text-anchor="middle" font-weight="600">点击获取技术服务</text>
                         </g>
                     </a>
 
-                    <!-- 右侧 Internet (虚线使用渐变) -->
+                    <!-- 右侧 Internet -->
                     <g transform="translate(700, 215)">
-                        <circle cx="50" cy="50" r="60" fill="#bae6fd" opacity="0.3" />
-                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad-candy-stroke)" stroke-width="2" stroke-dasharray="4,4">
+                        <circle cx="50" cy="50" r="60" fill="#c9a962" opacity="0.15" />
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#grad-gold-stroke)" stroke-width="2" stroke-dasharray="4,4">
                             <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="10s" repeatCount="indefinite"/>
                         </circle>
-                        <text x="50" y="55" font-family="sans-serif" font-size="18" font-weight="bold" fill="#0284c7" text-anchor="middle">Internet</text>
+                        <text x="50" y="55" font-family="Crimson Pro, serif" font-size="18" font-weight="600" fill="#c9a962" text-anchor="middle">Internet</text>
                     </g>
 
                     <!-- 连线 -->
-                    <path d="M240,175 C300,175 600,100 700,230" fill="none" stroke="#d1d5db" stroke-width="1" stroke-dasharray="4,4" />
-                    <text x="350" y="130" font-family="sans-serif" font-size="10" fill="#9ca3af" transform="rotate(10 350,130)">透明代理网关模式</text>
+                    <path d="M240,175 C300,175 600,100 700,230" fill="none" stroke="#c9a962" stroke-opacity="0.3" stroke-width="1" stroke-dasharray="4,4" />
+                    <text x="350" y="130" font-family="Crimson Pro, serif" font-size="10" fill="#a8b4c4" transform="rotate(10 350,130)">透明代理网关模式</text>
 
-                    <g stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrow)">
+                    <g stroke="#c9a962" stroke-opacity="0.5" stroke-width="2" fill="none" marker-end="url(#arrow)">
                         <path d="M240,175 C310,175 310,230 370,230" />
                         <path d="M240,265 L370,265" />
                         <path d="M240,355 C310,355 310,300 370,300" />
@@ -386,16 +422,16 @@
                     <circle r="4" fill="#ffffff">
                         <animateMotion path="M580,265 L690,265" dur="1s" repeatCount="indefinite" />
                     </circle>
-                    <text x="635" y="245" font-family="sans-serif" font-size="12" font-weight="bold" fill="#65a30d" text-anchor="middle">自动加速通道</text>
+                    <text x="635" y="245" font-family="Crimson Pro, serif" font-size="12" font-weight="600" fill="#84cc16" text-anchor="middle">自动加速通道</text>
 
                     <!-- 底部文字 -->
                     <g transform="translate(50, 450)">
-                        <text font-family="sans-serif" font-size="14" fill="#555">
-                            <tspan font-weight="bold" fill="#3b82f6">场景区别：</tspan>
-                            左侧三个 (Windows/Android/iOS) 是<tspan fill="#d97706" font-weight="bold">“单兵作战”</tspan>，需要在每个设备上分别安装软件、导入节点。
+                        <text font-family="Crimson Pro, serif" font-size="14" fill="#a8b4c4">
+                            <tspan font-weight="600" fill="#3b82f6">场景区别：</tspan>
+                            左侧三个 (Windows/Android/iOS) 是<tspan fill="#d97706" font-weight="600">"单兵作战"</tspan>，需要在每个设备上分别安装软件、导入节点。
                         </text>
-                        <text x="0" y="25" font-family="sans-serif" font-size="14" fill="#555">
-                            右侧 <tspan font-weight="bold" fill="#8b5cf6">OpenWrt</tspan> 是<tspan fill="#d97706" font-weight="bold">“集团军作战”</tspan>，路由器处理网络，连接它的所有设备无需任何额外设置！
+                        <text x="0" y="25" font-family="Crimson Pro, serif" font-size="14" fill="#a8b4c4">
+                            右侧 <tspan font-weight="600" fill="#8b5cf6">OpenWrt</tspan> 是<tspan fill="#d97706" font-weight="600">"集团军作战"</tspan>，路由器处理网络，连接它的所有设备无需任何额外设置！
                         </text>
                     </g>
                 </svg>
@@ -403,55 +439,42 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 pt-8 pb-20 font-mono text-gray-500">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-            <!-- Brand -->
+    <footer class="bg-[var(--color-white)] border-t border-[rgba(0,64,56,0.15)] pt-8 pb-16 font-mono text-[var(--color-harbor-mist)]">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="col-span-1 md:pl-4">
-                <h3 class="text-[#F69AAC] font-bold mb-4 tracking-wider text-xl flex items-center">
-                    <span class="mr-2">&gt;</span>DigitalFrontier
+                <h3 class="text-[var(--color-deep-teal)] font-heading font-bold mb-3 tracking-widest text-lg flex items-center">
+                    <span class="mr-2">&gt;</span>Signal
                 </h3>
-                <p class="text-sm leading-relaxed opacity-80 font-sans">
+                <p class="text-sm leading-relaxed opacity-80 font-sans italic">
                     Willing to make dreams come true
                 </p>
             </div>
-            
-            <!-- Navigation -->
+
             <div class="col-span-1 flex flex-col md:items-center md:pl-10">
                 <div class="w-full md:w-auto">
-                    <h3 class="text-[#DF95E3] font-bold mb-4 tracking-wider text-lg">
+                    <h3 class="text-[var(--color-deep-teal)] font-heading font-bold mb-3 tracking-widest text-base">
                         <span class="mr-2">&gt;</span>NAVIGATION
                     </h3>
-                    <ul class="space-y-3 text-sm font-sans">
-                        <li class="flex items-center">
-                            <span class="mr-2 text-lg font-bold font-mono opacity-0">&gt;</span>
-                            <a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank" class="hover:text-black transition-colors">Chrome</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-lg font-bold font-mono opacity-0">&gt;</span>
-                            <a href="https://op.dqtx.cc/" target="_blank" class="hover:text-black transition-colors">OpenWrt</a>
-                        </li>
-                        <li class="flex items-center">
-                            <span class="mr-2 text-lg font-bold font-mono opacity-0">&gt;</span>
-                            <a href="https://app.dqtx.cc/" target="_blank" class="hover:text-black transition-colors">Shopping</a>
-                        </li>
+                    <ul class="space-y-2 text-sm font-sans">
+                        <li><a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank" class="hover:text-[var(--color-deep-teal)] transition-colors">Chrome</a></li>
+                        <li><a href="https://op.dqtx.cc/" target="_blank" class="hover:text-[var(--color-deep-teal)] transition-colors">OpenWrt</a></li>
+                        <li><a href="https://app.dqtx.cc/" target="_blank" class="hover:text-[var(--color-deep-teal)] transition-colors">Shopping</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <!-- Connect -->
+
             <div class="col-span-1 flex flex-col md:items-end md:pr-12">
-                <h3 class="text-[#7DBDE9] font-bold mb-4 tracking-wider text-lg">
+                <h3 class="text-[var(--color-deep-teal)] font-heading font-bold mb-3 tracking-widest text-base">
                     <span class="mr-2">&gt;</span>CONNECT
                 </h3>
-                <div class="flex gap-6 items-center text-xl">
-                    <a href="https://github.com/dqtx760" target="_blank" class="hover:text-black transition-colors">
+                <div class="flex gap-5 items-center text-lg">
+                    <a href="https://github.com/dqtx760" target="_blank" class="hover:text-[var(--color-deep-teal)] transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" id="wechat-public-trigger" class="hover:text-[#DF95E3] transition-colors">
+                    <a href="#" id="wechat-public-trigger" class="hover:text-[var(--color-deep-teal)] transition-colors">
                         <i class="fab fa-weixin"></i>
                     </a>
-                    <a href="#" id="donation-btn" class="hover:text-[#F69AAC] transition-colors">
+                    <a href="#" id="donation-btn" class="hover:text-[var(--color-deep-teal)] transition-colors">
                         <i class="fas fa-hand-holding-heart"></i>
                     </a>
                 </div>
@@ -459,118 +482,67 @@
         </div>
     </footer>
 
-    <!-- Modals -->
-    <div id="contactModal" class="modal fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-        <div class="modal-content bg-white w-full max-w-sm rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
-            <div class="candy-gradient p-4 text-white text-center relative">
-                <span class="close-button absolute top-3 right-4 cursor-pointer text-xl opacity-70 hover:opacity-100">&times;</span>
-                <i class="fas fa-headset text-3xl mb-2"></i>
-                <h3 class="font-bold">VIP 客服支持</h3>
-            </div>
-            <div class="p-6 text-center">
-                <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-                    独享纯手工，支持指定国家，可自行修改密码、辅助邮箱安全信息，适用于Gemini学生优惠认证，首次登录有问题全额退，真正的永久独享！
-                </p>
-                <div class="bg-gray-50 p-4 rounded-xl flex justify-between items-center border border-gray-100">
-                    <div class="text-left">
-                        <span class="text-xs text-gray-400 block">微信号</span>
-                        <span class="font-mono font-bold text-lg text-ink" id="wechatId">dqtx33</span>
-                    </div>
-                    <button id="copyBtn" class="bg-black text-white text-sm font-bold px-4 py-2 rounded-lg hover:bg-gray-800 transition-all">复制</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="donation-modal" class="modal fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="modal-content bg-[#181a1f] border border-gray-700 rounded-xl w-full max-w-xs p-6 text-center">
-            <h3 class="text-white mb-4"><i class="fas fa-heart text-[#F69AAC] animate-pulse"></i> 感谢支持</h3>
-            <div class="flex border border-gray-700 rounded-lg mb-4 overflow-hidden">
-                <button id="wechat-tab" class="flex-1 p-2 text-xs font-bold bg-[#F69AAC]/20 text-[#F69AAC] border-r border-gray-700">微信</button>
-                <button id="alipay-tab" class="flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5">支付宝</button>
+        <div class="modal-content bg-[var(--color-white)] border border-[rgba(0,64,56,0.3)] rounded-2xl w-full max-w-xs p-6 text-center">
+            <h3 class="text-[var(--color-midnight-ink)] mb-4"><i class="fas fa-heart text-[var(--color-deep-teal)] animate-pulse"></i> 感谢支持</h3>
+            <div class="flex border border-[rgba(0,64,56,0.2)] rounded-2xl mb-4 overflow-hidden">
+                <button id="wechat-tab" class="flex-1 p-2 text-xs font-bold bg-[var(--color-fresh-teal)]/20 text-[var(--color-deep-teal)] border-r border-[rgba(0,64,56,0.2)]">微信</button>
+                <button id="alipay-tab" class="flex-1 p-2 text-xs font-bold text-[var(--color-harbor-mist)] hover:bg-white/5">支付宝</button>
             </div>
-            <div class="bg-white/5 p-2 rounded-lg border border-gray-700">
+            <div class="bg-[var(--color-white)] p-2 rounded-2xl border border-[rgba(0,64,56,0.2)]">
                 <img id="qr-code-img" src="https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4874.webp" class="w-full h-auto rounded object-contain" alt="QR Code">
             </div>
-            <button id="close-donation-btn" class="mt-4 w-full bg-white/10 text-gray-300 text-xs py-2 rounded hover:bg-white/20">关闭</button>
+            <button id="close-donation-btn" class="mt-4 w-full bg-[var(--color-white)] text-[var(--color-harbor-mist)] text-xs py-2 rounded-2xl hover:bg-[var(--color-soft-peach)]">关闭</button>
         </div>
     </div>
 
     <div id="generic-qr-modal" class="modal fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="modal-content bg-[#181a1f] border border-gray-700 rounded-xl w-full max-w-xs p-6 text-center">
-            <h3 id="generic-modal-title" class="text-white mb-4 font-bold"></h3>
-            <div class="bg-white/5 p-2 rounded-lg border border-gray-700">
+        <div class="modal-content bg-[var(--color-white)] border border-[rgba(0,64,56,0.3)] rounded-2xl w-full max-w-xs p-6 text-center">
+            <h3 id="generic-modal-title" class="text-[var(--color-midnight-ink)] mb-4 font-heading font-bold"></h3>
+            <div class="bg-[var(--color-white)] p-2 rounded-2xl border border-[rgba(0,64,56,0.2)]">
                 <img id="generic-modal-qr-img" src="" class="w-full h-auto rounded object-contain" alt="QR Code">
             </div>
-            <p id="generic-modal-desc" class="text-xs text-gray-400 mt-4"></p>
-            <button id="close-generic-modal-btn" class="mt-4 w-full bg-white/10 text-gray-300 text-xs py-2 rounded hover:bg-white/20">关闭</button>
+            <p id="generic-modal-desc" class="text-xs text-[var(--color-harbor-mist)] mt-4"></p>
+            <button id="close-generic-modal-btn" class="mt-4 w-full bg-[var(--color-white)] text-[var(--color-harbor-mist)] text-xs py-2 rounded-2xl hover:bg-[var(--color-soft-peach)]">关闭</button>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Modal Utilities
-            const open = (id) => { 
-                const m = document.getElementById(id); 
+            const open = (id) => {
+                const m = document.getElementById(id);
                 if(!m) return;
-                requestAnimationFrame(() => m.classList.add('active')); 
+                requestAnimationFrame(() => m.classList.add('active'));
             };
             const close = (id) => {
                 const m = document.getElementById(id);
                 if(m) m.classList.remove('active');
             };
-            
-            // Contact Modal (Trigger Removed from Hero, kept code in case needed later)
-            const heroBtn = document.getElementById('hero-contact-trigger');
-            if(heroBtn) {
-                heroBtn.onclick = (e) => { e.preventDefault(); open('contactModal'); };
-            }
-            const contactCloseBtn = document.querySelector('#contactModal .close-button');
-            if(contactCloseBtn) contactCloseBtn.onclick = () => close('contactModal');
-            
-            document.getElementById('contactModal').onclick = (e) => { 
-                if(e.target === document.getElementById('contactModal')) close('contactModal'); 
-            };
-            
-            document.getElementById('copyBtn').onclick = function() {
-                const idText = document.getElementById('wechatId').innerText;
-                navigator.clipboard.writeText(idText).then(() => {
-                    const originalText = this.innerText;
-                    this.innerText = '已复制!'; 
-                    this.classList.add('bg-[#F69AAC]', 'hover:bg-[#e08496]');
-                    setTimeout(() => {
-                        this.innerText = originalText;
-                        this.classList.remove('bg-[#F69AAC]', 'hover:bg-[#e08496]');
-                    }, 2000);
-                }).catch(err => console.error('Failed to copy:', err));
-            };
 
-            // Donation Modal
             const dModal = document.getElementById('donation-modal');
             const qr = document.getElementById('qr-code-img');
             const urls = { wechat: 'https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4874.webp', alipay: 'https://gitee.com/da-qiang-classmate/typora/raw/master/image/IMG_4877.webp' };
-            
+
             const donationBtn = document.getElementById('donation-btn');
             if(donationBtn) donationBtn.addEventListener('click', (e)=>{ e.preventDefault(); open('donation-modal'); });
-            
+
             document.getElementById('close-donation-btn').onclick = () => close('donation-modal');
             dModal.onclick = (e) => { if(e.target===dModal) close('donation-modal'); };
-            
-            document.getElementById('wechat-tab').onclick = function() { 
-                qr.src = urls.wechat; 
-                this.className = "flex-1 p-2 text-xs font-bold bg-[#F69AAC]/20 text-[#F69AAC] border-r border-gray-700"; 
-                document.getElementById('alipay-tab').className = "flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5"; 
+
+            document.getElementById('wechat-tab').onclick = function() {
+                qr.src = urls.wechat;
+                this.className = "flex-1 p-2 text-xs font-bold bg-[var(--color-fresh-teal)]/20 text-[var(--color-deep-teal)] border-r border-[rgba(0,64,56,0.2)]";
+                document.getElementById('alipay-tab').className = "flex-1 p-2 text-xs font-bold text-[var(--color-harbor-mist)] hover:bg-white/5";
             };
-            document.getElementById('alipay-tab').onclick = function() { 
-                qr.src = urls.alipay; 
-                this.className = "flex-1 p-2 text-xs font-bold bg-[#7DBDE9]/20 text-[#7DBDE9]"; 
-                document.getElementById('wechat-tab').className = "flex-1 p-2 text-xs font-bold text-gray-400 hover:bg-white/5 border-r border-gray-700"; 
+            document.getElementById('alipay-tab').onclick = function() {
+                qr.src = urls.alipay;
+                this.className = "flex-1 p-2 text-xs font-bold bg-[var(--color-fresh-teal)]/20 text-[var(--color-deep-teal)]";
+                document.getElementById('wechat-tab').className = "flex-1 p-2 text-xs font-bold text-[var(--color-harbor-mist)] hover:bg-white/5 border-r border-[rgba(0,64,56,0.2)]";
             };
 
-            // Generic QR Modal
             const gModal = document.getElementById('generic-qr-modal');
             const wechatTrigger = document.getElementById('wechat-public-trigger');
-            
+
             if(wechatTrigger) {
                 wechatTrigger.addEventListener('click', (e)=>{
                     e.preventDefault();
@@ -586,3 +558,4 @@
     </script>
 </body>
 </html>
+
