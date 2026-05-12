@@ -70,9 +70,13 @@ https://github.com/SAENE/luci-theme-design
 ## ✅Telegram
 **+86新注册电报，绕过sms收费**
 
++86 手机登录 Telegram 总是遇见 SMSfee 问题的根本跳过方法
+https://w2solo.com/topics/7310
+
 1、换IP，建议，美 日 新 节点，不建议香港节点。
 2、换客户端，telegramx，或者这两个。
 [telegramx](https://github.com/TGX-Android/Telegram-X/releases) [第三方客户端](https://github.com/forkgram/TelegramAndroid/releases) [飞机旧版](https://www.apkmirror.com/uploads/?devcategory=telegram-fz-llc) 
+
 
 3、卡bug，可以邮箱验证优先邮箱验证。遇到付费解密强制重启app，多试几次有概率可以跳过。
 
