@@ -51,13 +51,18 @@ https://raw.githubusercontent.com/ GitHub引擎
 HTTPS解密配置
 
 打开火箭并链接上，点击配置-本地文件（感叹号）---https解密打开---点击生成新的CA证书---安装证书（如果需要密码卸载重新安装，就不需要了），手机设置--关于本机---证书信任设置---最下面启用完全信任
-
-MITM广告过滤模块安装
-https://9lnk.io/0ijs   #融合版
-https://9lnk.io/d6O0   #油管广告
-配置--模块，右上角“+”，粘贴URL,下载即可大大功告成！
 ```
+MITM广告过滤模块安装
 
+https://9lnk.io/0ijs   #融合版
+
+https://9lnk.io/d6O0   #油管广告
+
+配置--模块，右上角“+”，粘贴URL,下载即可大大功告成！
+
+最完善的iOS Shadowrocket规则
+
+https://github.com/Johnshall/Shadowrocket-ADBlock-Rules-Forever
 
 
 ## ✅软路由
