@@ -148,6 +148,14 @@
 
         .interactive-group { cursor: pointer; transition: filter 0.2s ease; }
         .interactive-group:hover { filter: brightness(1.15); }
+
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-touch-callout: none;
+        }
     </style>
 </head>
 
@@ -555,6 +563,27 @@
             }
             document.getElementById('close-generic-modal-btn').onclick = () => close('generic-qr-modal');
             gModal.onclick = (e) => { if(e.target===gModal) close('generic-qr-modal'); };
+
+            const blockedEvents = ['contextmenu', 'copy', 'cut', 'dragstart', 'selectstart'];
+            blockedEvents.forEach((eventName) => {
+                document.addEventListener(eventName, (e) => e.preventDefault());
+            });
+
+            document.addEventListener('keydown', (e) => {
+                const key = e.key.toLowerCase();
+                const blocked =
+                    e.key === 'F12' ||
+                    (e.ctrlKey && key === 'u') ||
+                    (e.ctrlKey && key === 's') ||
+                    (e.ctrlKey && key === 'p') ||
+                    (e.ctrlKey && ['a', 'c', 'x'].includes(key)) ||
+                    (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key));
+
+                if(blocked) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            });
         });
     </script>
 </body>
