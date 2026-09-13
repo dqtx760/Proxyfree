@@ -47,6 +47,8 @@ https://raw.githubusercontent.com/ GitHub引擎
 | [Shadowrocket](https://apps.apple.com/bo/app/shadowrocket/id932747118?l=en) |         |      |       | ✅    |         |      |
 | [ClashBar](https://github.com/Sitoi/ClashBar/releases/tag/v0.1.6) |         |   ✅   |       |     |         |      |
 
+✅这个网站汇集所有的软件：[点此查看](https://huarun.win/)
+
 如果开启Tun，**栈模式推荐：System**  网速就会很快
 
 附：**自用小火箭MITM广告过滤模块**
