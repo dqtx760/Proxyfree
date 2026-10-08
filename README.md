@@ -37,6 +37,7 @@
 | [anaer/Sub 订阅](https://anaer.github.io/Sub/clash.yaml) | Clash 配置地址 |
 | [anaer/Sub 镜像](https://cdn.jsdelivr.net/gh/anaer/Sub@main/clash.yaml) | 同一项目的镜像地址 |
 | [OpenRung](https://openrung.org/zh/#top) · [源码](https://github.com/openrung/openrung) | 独立项目，使用方式以其官网为准 |
+| [cfnew](https://github.com/byJoey/cfnew) | Cloudflare自部署 |
 | [付费服务入口](https://77.dqtx.cc/) | 第三方付费服务 |
 
 ## Shadowrocket 配置与规则
