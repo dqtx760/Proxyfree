@@ -59,7 +59,7 @@
 
 - Android 客户端：[Telegram X](https://github.com/TGX-Android/Telegram-X/releases) · [Forkgram](https://github.com/forkgram/TelegramAndroid/releases)。安装第三方客户端前请核对维护者和权限。
 - [Telegram 语言包](https://t.me/setlanguage/classic-zh-cn)
-- 群组与机器人索引：[telegram-mop](https://telegram-mop.869hr.uk/) · [tmeseoi](https://github.com/tmeseoi/telegram.github.io) · [TelegramGroup](https://github.com/itgoyo/TelegramGroup) · [TelegramBot](https://github.com/itgoyo/TelegramBot)
+- 群组与机器人索引：[telegram-mop](https://telegram-mop.869hr.uk/) · [tmeseoi](https://github.com/tmeseoi/telegram.github.io) · [TelegramGroup](https://github.com/itgoyo/TelegramGroup) · [TelegramBot](https://github.com/itgoyo/TelegramBot) · [TGbox](https://tgbox.cc/group/software/)
 - 可在 Telegram 的隐私与安全设置中查看是否提供 Passkey 登录；具体入口以当前客户端版本为准。
 
 旧版 README 中关于短信收费绕过、强制重启跳过验证和替换浏览器关联文件的做法缺乏稳定性验证，也可能带来账号或设备风险，因此不作为操作指南保留。

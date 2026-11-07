@@ -1,0 +1,421 @@
+# ============================================================
+# 阿尔忒弥斯实验室 · Clash 完美分流 3.0
+#
+# 面向 Clash Verge / Mihomo
+# 支持 Fake-IP、TUN、IPv6 防泄漏及多场景规则分流。
+#
+# 使用：
+# Clash Verge → 订阅 → 全局扩展覆写配置
+# 将本文件完整粘贴后保存即可。
+#
+# Rule Provider 每 24 小时自动更新。
+# ============================================================
+
+
+# ============================================================
+# 核心网络设置
+# ============================================================
+
+# 关闭 IPv6，避免 IPv4 / IPv6 出口不一致
+ipv6: false
+
+
+# ============================================================
+# TUN
+# ============================================================
+
+tun:
+  enable: true
+  stack: mixed
+  auto-route: true
+  auto-detect-interface: true
+  strict-route: true
+  dns-hijack:
+    - any:53
+    - tcp://any:53
+
+
+# ============================================================
+# DNS
+# ============================================================
+
+dns:
+  enable: true
+
+  # DNS 服务监听
+  listen: 0.0.0.0:1053
+
+  # 禁止返回 IPv6 DNS 记录
+  ipv6: false
+
+  # Fake-IP
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+
+  # Fake-IP 黑名单
+  fake-ip-filter-mode: blacklist
+  fake-ip-filter:
+    - '*.lan'
+
+  # DNS 上游
+  nameserver:
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+
+  # 解析 DNS 服务器自身
+  default-nameserver:
+    - 223.5.5.5
+    - 223.6.6.6
+
+  # 代理节点域名解析
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+
+
+# ============================================================
+# Rule Providers
+# ============================================================
+
+rule-providers:
+
+  ads:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/ads.yaml"
+
+  ai:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/ai.yaml"
+
+  youtube:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/youtube.yaml"
+
+  crypto:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/crypto.yaml"
+
+  disney:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/disney.yaml"
+
+  apple:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/apple.yaml"
+
+  google:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/google.yaml"
+
+  software:
+    type: http
+    behavior: classical
+    format: yaml
+    interval: 86400
+    url: "https://cdn.jsdelivr.net/gh/n0de-sudo/Perfect-Rules@main/Clash/rules/software.yaml"
+
+
+# ============================================================
+# Proxy Groups
+# ============================================================
+
+proxy-groups:
+
+  # ---------- 用户自选组 ----------
+
+  - name: "🚀 默认代理 [自选]"
+    type: select
+    proxies:
+      - "♻️ 自动选择 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+
+  - name: "🤖 AI服务 [自选]"
+    type: select
+    proxies:
+      - "🇺🇸 美国节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "📺 油管专用 [自选]"
+    type: select
+    proxies:
+      - "🇭🇰 香港节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "🎬 流媒体 [自选]"
+    type: select
+    proxies:
+      - "🇺🇸 美国节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "💬 电报专用 [自选]"
+    type: select
+    proxies:
+      - "🇭🇰 香港节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "Ⓜ️ 微软服务 [自选]"
+    type: select
+    proxies:
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "🍎 苹果服务 [自选]"
+    type: select
+    proxies:
+      - "🇭🇰 香港节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "🔍 谷歌服务 [自选]"
+    type: select
+    proxies:
+      - "🇺🇸 美国节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "💰 币圈专用 [自选]"
+    type: select
+    proxies:
+      - "🇭🇰 香港节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+  - name: "🖥️ 软件分流 [自选]"
+    type: select
+    proxies:
+      - "🚀 默认代理 [自选]"
+      - "♻️ 自动选择 [系统]"
+      - "🇭🇰 香港节点 [系统]"
+      - "🇯🇵 日本节点 [系统]"
+      - "🇸🇬 新加坡节点 [系统]"
+      - "🇺🇸 美国节点 [系统]"
+      - "🇹🇼 台湾节点 [系统]"
+      - "🌍 其他地区 [系统]"
+      - "🌐 全部节点 [系统]"
+      - DIRECT
+
+
+  # ---------- 系统组 ----------
+
+  - name: "🌐 全部节点 [系统]"
+    type: select
+    include-all-proxies: true
+    exclude-type: "Direct"
+
+  - name: "♻️ 自动选择 [系统]"
+    type: url-test
+    include-all-proxies: true
+    exclude-type: "Direct"
+    exclude-filter: "(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+
+  # ==========================================================
+  # 地区节点
+  # ==========================================================
+
+  - name: "🇭🇰 香港节点 [系统]"
+    type: url-test
+    include-all-proxies: true
+    filter: '(?i)🇭🇰|香港|港|\bHK\b|\bHKG\b|Hong[ -]?Kong'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+  - name: "🇯🇵 日本节点 [系统]"
+    type: url-test
+    include-all-proxies: true
+    filter: '(?i)🇯🇵|日本|日|\bJP\b|\bJPN\b|Japan|Tokyo|Osaka'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+  - name: "🇸🇬 新加坡节点 [系统]"
+    type: url-test
+    include-all-proxies: true
+    filter: '(?i)🇸🇬|新加坡|新国|\bSG\b|\bSGP\b|Singapore'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+  - name: "🇺🇸 美国节点 [系统]"
+    type: url-test
+    include-all-proxies: true
+    filter: '(?i)🇺🇸|美国|美|\bUS\b|\bUSA\b|United[ -]?States|America|Los[ -]?Angeles|New[ -]?York|San[ -]?Francisco'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+  - name: "🇹🇼 台湾节点 [系统]"
+    type: url-test
+    include-all-proxies: true
+    filter: '(?i)🇹🇼|台湾|台|\bTW\b|\bTWN\b|Taiwan|Taipei'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+    url: "https://cp.cloudflare.com/generate_204"
+    interval: 300
+    tolerance: 50
+    lazy: true
+
+
+  # ==========================================================
+  # 其他地区
+  #
+  # 除香港 / 日本 / 新加坡 / 美国 / 台湾之外，
+  # 其它所有代理节点自动进入此组。
+  #
+  # 这样无论机场出现德国、加拿大、英国、越南、印度，
+  # 还是未来出现法国、荷兰、澳大利亚、巴西等节点，
+  # 都不需要再次修改配置。
+  # ==========================================================
+
+  - name: "🌍 其他地区 [系统]"
+    type: select
+    include-all-proxies: true
+    filter: '(?i)^(?!.*(?:🇭🇰|🇯🇵|🇸🇬|🇺🇸|🇹🇼|香港|日本|新加坡|美国|台湾|\bHK\b|\bHKG\b|\bJP\b|\bJPN\b|\bSG\b|\bSGP\b|\bUS\b|\bUSA\b|\bTW\b|\bTWN\b|Hong[ -]?Kong|Japan|Tokyo|Osaka|Singapore|United[ -]?States|America|Los[ -]?Angeles|New[ -]?York|San[ -]?Francisco|Taiwan|Taipei)).*'
+    exclude-filter: '(?i)官网|流量|剩余|到期|过期|套餐|订阅|重置|traffic|expire|expired|subscription|reset|official|website'
+    exclude-type: "Direct"
+
+
+  # ---------- 广告拦截 ----------
+
+  - name: "🛑 广告拦截 [系统]"
+    type: select
+    proxies:
+      - REJECT
+      - DIRECT
+
+
+# ============================================================
+# Rules
+# ============================================================
+
+rules:
+
+  # 软件进程优先
+  - "RULE-SET,software,🖥️ 软件分流 [自选]"
+
+  # 私有地址 / 局域网
+  - "GEOSITE,private,DIRECT"
+  - "GEOIP,private,DIRECT,no-resolve"
+
+  # 广告
+  - "RULE-SET,ads,🛑 广告拦截 [系统]"
+
+  # AI
+  - "RULE-SET,ai,🤖 AI服务 [自选]"
+
+  # YouTube
+  - "RULE-SET,youtube,📺 油管专用 [自选]"
+
+  # 币圈
+  - "RULE-SET,crypto,💰 币圈专用 [自选]"
+
+  # 流媒体
+  - "RULE-SET,disney,🎬 流媒体 [自选]"
+  - "GEOSITE,netflix,🎬 流媒体 [自选]"
+
+  # Apple
+  - "RULE-SET,apple,🍎 苹果服务 [自选]"
+
+  # Google
+  - "RULE-SET,google,🔍 谷歌服务 [自选]"
+
+  # Telegram
+  - "GEOSITE,telegram,💬 电报专用 [自选]"
+
+  # Microsoft
+  - "GEOSITE,microsoft,Ⓜ️ 微软服务 [自选]"
+
+  # 中国大陆
+  - "GEOSITE,CN,DIRECT"
+  - "GEOIP,CN,DIRECT,no-resolve"
+
+  # 其他流量
+  - "MATCH,🚀 默认代理 [自选]"
